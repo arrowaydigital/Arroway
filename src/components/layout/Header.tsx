@@ -21,8 +21,8 @@ export function Header() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="text-2xl font-bold text-[#074edb]">
-              Arroway
+            <Link to="/"> 
+              <img src="/logo.png" alt="Arroway Logo" width={150} height={40} className="h-10 object-contain" />
             </Link>
           </div>
 
