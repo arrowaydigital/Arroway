@@ -179,7 +179,7 @@ export function AboutPage() {
                   >
                     <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
                       <div className="text-2xl font-bold text-[#074edb]">
-                        {index === 0 ? "📊" : index === 1 ? "💡" : "🤝"}
+                        {index === 0 ? "01" : index === 1 ? "02" : "03"}
                       </div>
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-4">{value.title}</h3>
