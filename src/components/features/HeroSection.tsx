@@ -74,7 +74,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="relative mt-8 lg:mt-0"
           >
-            <div className="relative rounded-lg overflow-hidden shadow-2xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src={heroImage}
                 alt="Digital marketing analytics dashboard"
@@ -85,7 +85,7 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
-                className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 bg-white rounded-lg p-4 sm:p-6 shadow-lg"
+                className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 bg-white rounded-2xl p-4 sm:p-6 shadow-lg"
               >
                 <div className="flex items-center justify-between">
                   <div>
