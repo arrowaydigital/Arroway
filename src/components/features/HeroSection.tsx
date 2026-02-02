@@ -1,5 +1,6 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, PlayCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-marketing.jpg";
 import { motion } from "framer-motion";
 
@@ -35,8 +36,8 @@ export function HeroSection() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
             >
-              Grow Your Business with{" "}
-              <span className="text-[#074edb]">Data-Driven</span> Marketing
+              Transform Your Business with{" "}
+              <span className="text-[#074edb]">AI-Powered</span> Marketing
             </motion.h1>
             
             <motion.p 
@@ -45,7 +46,7 @@ export function HeroSection() {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="text-lg sm:text-xl text-gray-600 leading-relaxed"
             >
-              We help small businesses and startups achieve measurable growth through strategic digital marketing campaigns that deliver real results.
+              We help small businesses and startups achieve 300%+ growth through AI-powered digital marketing campaigns that deliver measurable ROI and real business results.
             </motion.p>
             
             <motion.div 
@@ -55,11 +56,10 @@ export function HeroSection() {
               className="flex flex-col sm:flex-row gap-4"
             >
               <Button className="bg-[#074edb] hover:bg-[#063db3] text-white px-8 py-6 text-lg h-auto">
-                Start Growing Today
+                Get Your Free Growth Strategy
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button variant="outline" className="border-2 border-gray-300 px-8 py-6 text-lg h-auto hover:border-[#074edb] hover:text-[#074edb]">
-                <PlayCircle className="mr-2 h-5 w-5" />
                 Watch Demo
               </Button>
             </motion.div>
