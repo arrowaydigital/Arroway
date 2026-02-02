@@ -165,7 +165,7 @@ export function ResultsPage() {
                 </div>
               </FadeInSection>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 {metrics.map((metric, index) => (
                   <FadeInSection key={metric.label} delay={index * 0.1}>
                     <motion.div
@@ -204,7 +204,7 @@ export function ResultsPage() {
                 </div>
               </FadeInSection>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 sm:mb-16">
                 {detailedCaseStudies.map((study, index) => (
                   <FadeInSection key={study.id} delay={index * 0.1}>
                     <motion.div
@@ -308,7 +308,7 @@ export function ResultsPage() {
                 </div>
               </FadeInSection>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {testimonials.map((testimonial, index) => (
                   <FadeInSection key={index} delay={index * 0.1}>
                     <motion.div
