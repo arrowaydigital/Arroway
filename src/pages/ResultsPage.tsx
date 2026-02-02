@@ -134,9 +134,9 @@ export function ResultsPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
                 >
+                  <br/>
+                  <br/>
                   <span className="bg-blue-100 text-[#074edb] px-4 py-2 rounded text-sm font-semibold inline-block mb-6">
-                    <br/>
-                    <br/>
                     Case Studies & Results
                   </span>
                   
