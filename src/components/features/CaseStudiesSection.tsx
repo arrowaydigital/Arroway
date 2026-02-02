@@ -83,7 +83,7 @@ export function CaseStudiesSection() {
                     className="w-full h-48 object-cover"
                   />
                   <div className={`absolute top-4 right-4 bg-gradient-to-br ${study.color} rounded p-3 shadow-lg`}>
-                    <div className="h-6 w-6 text-white">📈</div>
+                    <div className="h-6 w-6 text-white font-bold text-center text-xs">ROI</div>
                   </div>
                 </div>
                 
