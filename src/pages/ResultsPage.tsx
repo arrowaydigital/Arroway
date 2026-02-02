@@ -135,6 +135,8 @@ export function ResultsPage() {
                   transition={{ duration: 0.6 }}
                 >
                   <span className="bg-blue-100 text-[#074edb] px-4 py-2 rounded text-sm font-semibold inline-block mb-6">
+                    <br/>
+                    <br/>
                     Case Studies & Results
                   </span>
                   
