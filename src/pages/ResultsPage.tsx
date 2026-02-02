@@ -1,13 +1,39 @@
-import React from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Button } from "@/components/ui/button";
 import { PageTransition } from "@/components/animations/PageTransition";
+import { FadeInSection } from "@/components/animations/FadeInSection";
 import { motion } from "framer-motion";
-import { ArrowRight, TrendingUp, Users, DollarSign } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function ResultsPage() {
-  const caseStudies = [
+  const metrics = [
+    {
+      icon: "",
+      value: "347%",
+      label: "Average ROI",
+      description: "Across all campaigns",
+    },
+    {
+      icon: "",
+      value: "200+",
+      label: "Active Clients",
+      description: "Small businesses & startups",
+    },
+    {
+      icon: "",
+      value: "98%",
+      label: "Client Satisfaction",
+      description: "Rating from reviews",
+    },
+    {
+      icon: "",
+      value: "$12M+",
+      label: "Ad Spend Managed",
+      description: "Optimized for performance",
+    },
+  ];
+
+  const detailedCaseStudies = [
     {
       id: 1,
       title: "E-commerce Startup Growth",
@@ -20,10 +46,11 @@ export function ResultsPage() {
         { metric: "Organic Traffic", value: "520% growth" },
         { metric: "Revenue", value: "$2.3M in first year" }
       ],
+      timeline: "6 months",
+      investment: "$8,000/mo",
       image: "https://images.unsplash.com/photo-1607082350899-7e105aa886ae?w=600&h=400&fit=crop",
       color: "from-blue-500 to-blue-600",
-      timeline: "6 months",
-      investment: "$8,000/mo"
+      successStory: "TechWear went from struggling to find customers to becoming the go-to brand in their niche, with their customer base growing 5x in just 6 months."
     },
     {
       id: 2,
@@ -37,10 +64,11 @@ export function ResultsPage() {
         { metric: "Monthly Recurring Revenue", value: "420% increase" },
         { metric: "Customer Lifetime Value", value: "180% improvement" }
       ],
+      timeline: "8 months",
+      investment: "$12,000/mo",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
       color: "from-purple-500 to-purple-600",
-      timeline: "8 months",
-      investment: "$12,000/mo"
+      successStory: "CloudTask Pro transformed from a bootstrapped startup to a market leader with predictable revenue streams and a loyal customer base."
     },
     {
       id: 3,
@@ -54,68 +82,51 @@ export function ResultsPage() {
         { metric: "Cost Per Lead", value: "65% reduction" },
         { metric: "Monthly Revenue", value: "$85K growth" }
       ],
+      timeline: "4 months",
+      investment: "$6,500/mo",
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
       color: "from-green-500 to-green-600",
-      timeline: "4 months",
-      investment: "$6,500/mo"
+      successStory: "Prime Home Services reduced their marketing costs while increasing lead quality, resulting in higher profit margins and sustainable growth."
     },
     {
       id: 4,
-      title: "B2B Lead Generation",
-      client: "DataSync Solutions",
-      industry: "Software & Technology",
-      challenge: "Low-quality leads and long sales cycles",
-      solution: "LinkedIn Ads + Content marketing + Marketing automation",
-      results: [
-        { metric: "Qualified Leads", value: "450% increase" },
-        { metric: "Sales Cycle", value: "40% shorter" },
-        { metric: "Deal Size", value: "130% larger" }
-      ],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-      color: "from-indigo-500 to-indigo-600",
-      timeline: "10 months",
-      investment: "$15,000/mo"
-    },
-    {
-      id: 5,
-      title: "Restaurant Chain Expansion",
-      client: "Fresh Bites",
+      title: "Restaurant Chain Digital Presence",
+      client: "Urban Bites",
       industry: "Food & Beverage",
-      challenge: "Limited brand awareness in new markets",
-      solution: "Multi-channel advertising + Influencer partnerships + Local SEO",
+      challenge: "Limited online presence and competition from delivery apps",
+      solution: "Social media marketing + Online ordering platform + Local SEO",
       results: [
-        { metric: "Brand Awareness", value: "300% increase" },
-        { metric: "Foot Traffic", value: "250% growth" },
-        { metric: "Online Orders", value: "500% increase" }
+        { metric: "Online Orders", value: "240% increase" },
+        { metric: "Social Following", value: "300K+ followers" },
+        { metric: "Brand Awareness", value: "180% improvement" }
       ],
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop",
-      color: "from-orange-500 to-orange-600",
       timeline: "5 months",
-      investment: "$10,000/mo"
-    },
-    {
-      id: 6,
-      title: "Health & Wellness Brand",
-      client: "VitaLife",
-      industry: "Health & Wellness",
-      challenge: "Competing in a saturated market",
-      solution: "Influencer marketing + SEO + Email campaigns",
-      results: [
-        { metric: "Social Following", value: "800% growth" },
-        { metric: "Email List", value: "50K subscribers" },
-        { metric: "Product Sales", value: "380% increase" }
-      ],
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
-      color: "from-teal-500 to-teal-600",
-      timeline: "7 months",
-      investment: "$9,000/mo"
+      investment: "$7,000/mo",
+      image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&h=400&fit=crop",
+      color: "from-red-500 to-red-600",
+      successStory: "Urban Bites created a strong digital ecosystem that drove both online orders and foot traffic to their physical locations."
     }
   ];
 
-  const overallStats = [
-    { icon: TrendingUp, value: "300%+", label: "Average ROI" },
-    { icon: Users, value: "50+", label: "Happy Clients" },
-    { icon: DollarSign, value: "$25M+", label: "Revenue Generated" }
+  const testimonials = [
+    {
+      quote: "The results exceeded our expectations. We've seen a 340% increase in conversion rate and over $2.3M in revenue in just 6 months.",
+      author: "Sarah Johnson",
+      position: "CEO, TechWear Co.",
+      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face"
+    },
+    {
+      quote: "Working with Arroway transformed our business from a bootstrapped startup to a market leader with predictable revenue streams.",
+      author: "Michael Chen",
+      position: "Founder, CloudTask Pro",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face"
+    },
+    {
+      quote: "They reduced our marketing costs while increasing lead quality, resulting in higher profit margins and sustainable growth.",
+      author: "David Park",
+      position: "Owner, Prime Home Services",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+    }
   ];
 
   return (
@@ -123,140 +134,202 @@ export function ResultsPage() {
       <div className="min-h-screen">
         <Header />
         <main>
-          {/* Hero Section */}
-          <section className="relative pt-24 pb-16 sm:pb-20 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-50 -z-10" />
-            
+          {/* Page Header */}
+          <section className="pt-24 sm:pt-28 pb-12 bg-gradient-to-br from-blue-50 via-white to-blue-50">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-4xl mx-auto text-center">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <br/>
-                  <br/>
-                  <span className="bg-blue-100 text-[#074edb] px-4 py-2 rounded text-sm font-semibold inline-block mb-6">
-                    Case Studies & Results
-                  </span>
-                  
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                    Real Results from <span className="text-[#074edb]">Real Businesses</span>
+              <FadeInSection>
+                <div className="text-center max-w-3xl mx-auto">
+                  <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                    <br/>
+                    Proven Results That Matter
                   </h1>
-                  
-                  <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                    See how we've helped businesses like yours achieve remarkable growth through data-driven marketing strategies.
+                  <p className="text-lg sm:text-xl text-gray-600">
+                    We measure success by your growth. Here's what we've achieved for our clients.
                   </p>
-                </motion.div>
-              </div>
+                </div>
+              </FadeInSection>
             </div>
           </section>
 
-          {/* Overall Stats */}
-          <section className="py-12 bg-white border-y border-gray-200">
+          {/* Metrics Grid */}
+          <section className="py-16 sm:py-20 bg-white">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {overallStats.map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="text-center"
-                  >
-                    <div className="flex justify-center mb-4">
-                      <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                        <stat.icon className="h-8 w-8 text-[#074edb]" />
+              <FadeInSection>
+                <div className="text-center mb-16">
+                  <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                    Our Impact
+                  </h2>
+                  <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    The measurable results we've delivered for businesses like yours.
+                  </p>
+                </div>
+              </FadeInSection>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                {metrics.map((metric, index) => (
+                  <FadeInSection key={metric.label} delay={index * 0.1}>
+                    <motion.div
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      transition={{ duration: 0.2 }}
+                      className="bg-gradient-to-br from-blue-50 to-white p-8 rounded border border-blue-100 hover:shadow-lg transition-shadow h-full"
+                    >
+                      <div className="w-12 h-12 bg-[#074edb] rounded flex items-center justify-center mb-4">
+                        {metric.icon && <span className="text-xl">{metric.icon}</span>}
                       </div>
-                    </div>
-                    <div className="text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
-                    <div className="text-gray-600">{stat.label}</div>
-                  </motion.div>
+                      <div className="text-4xl font-bold text-gray-900 mb-2">
+                        {metric.value}
+                      </div>
+                      <div className="text-lg font-semibold text-gray-700 mb-1">
+                        {metric.label}
+                      </div>
+                      <div className="text-sm text-gray-600">{metric.description}</div>
+                    </motion.div>
+                  </FadeInSection>
                 ))}
               </div>
             </div>
           </section>
 
-          {/* Case Studies Grid */}
+          {/* Detailed Case Studies */}
           <section className="py-16 sm:py-20 bg-gray-50">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {caseStudies.map((study, index) => (
-                  <motion.div
-                    key={study.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100"
-                  >
-                    <div className="relative">
-                      <img
-                        src={study.image}
-                        alt={study.title}
-                        className="w-full h-56 object-cover"
-                      />
-                      <div className={`absolute top-4 right-4 bg-gradient-to-br ${study.color} rounded-lg px-4 py-2 shadow-lg`}>
-                        <div className="text-white font-bold text-sm">{study.industry}</div>
-                      </div>
-                    </div>
-                    
-                    <div className="p-8">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                        {study.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm mb-6">
-                        Client: {study.client}
-                      </p>
-                      
-                      <div className="mb-6">
-                        <h4 className="font-semibold text-gray-900 mb-2">The Challenge</h4>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          {study.challenge}
-                        </p>
-                      </div>
-                      
-                      <div className="mb-6">
-                        <h4 className="font-semibold text-gray-900 mb-2">Our Solution</h4>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          {study.solution}
-                        </p>
-                      </div>
+              <FadeInSection>
+                <div className="text-center mb-16">
+                  <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                    Success Stories
+                  </h2>
+                  <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Real businesses, real results, real impact.
+                  </p>
+                </div>
+              </FadeInSection>
 
-                      <div className="mb-6 grid grid-cols-2 gap-4">
-                        <div className="bg-gray-50 rounded-lg p-3">
-                          <div className="text-xs text-gray-600 mb-1">Timeline</div>
-                          <div className="font-semibold text-[#074edb]">{study.timeline}</div>
-                        </div>
-                        <div className="bg-gray-50 rounded-lg p-3">
-                          <div className="text-xs text-gray-600 mb-1">Investment</div>
-                          <div className="font-semibold text-[#074edb]">{study.investment}</div>
-                        </div>
-                      </div>
-                      
-                      <div className="border-t border-gray-200 pt-6">
-                        <h4 className="font-semibold text-gray-900 mb-4">Key Results</h4>
-                        <div className="space-y-3">
-                          {study.results.map((result, resultIndex) => (
-                            <div key={resultIndex} className="flex justify-between items-center">
-                              <span className="text-sm text-gray-600">{result.metric}</span>
-                              <span className="text-sm font-bold text-[#074edb] bg-blue-50 px-3 py-1 rounded">
-                                {result.value}
-                              </span>
-                            </div>
-                          ))}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                {detailedCaseStudies.map((study, index) => (
+                  <FadeInSection key={study.id} delay={index * 0.1}>
+                    <motion.div
+                      whileHover={{ scale: 1.02, y: -5 }}
+                      transition={{ duration: 0.2 }}
+                      className="bg-white rounded border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition-all h-full flex flex-col"
+                    >
+                      <div className="relative">
+                        <img
+                          src={study.image}
+                          alt={study.title}
+                          className="w-full h-48 object-cover"
+                        />
+                        <div className={`absolute top-4 right-4 bg-gradient-to-br ${study.color} rounded p-3 shadow-lg`}>
+                          <div className="h-6 w-6 text-white font-bold text-center text-xs">ROI</div>
                         </div>
                       </div>
                       
-                      <div className="mt-6">
-                        <Button className="w-full bg-white border-2 border-gray-200 text-gray-700 hover:border-[#074edb] hover:text-[#074edb] hover:bg-blue-50">
+                      <div className="p-6 flex-grow">
+                        <div className="mb-4">
+                          <span className="inline-block bg-blue-100 text-[#074edb] px-3 py-1 rounded text-sm font-medium mb-2">
+                            {study.industry}
+                          </span>
+                          <h3 className="text-xl font-bold text-gray-900 mt-3 mb-2">
+                            {study.title}
+                          </h3>
+                          <p className="text-gray-600 text-sm">
+                            For {study.client}
+                          </p>
+                        </div>
+                        
+                        <div className="mb-4">
+                          <h4 className="font-semibold text-gray-900 mb-2">The Challenge</h4>
+                          <p className="text-gray-600 text-sm leading-relaxed">
+                            {study.challenge}
+                          </p>
+                        </div>
+                        
+                        <div className="mb-4">
+                          <h4 className="font-semibold text-gray-900 mb-2">Our Solution</h4>
+                          <p className="text-gray-600 text-sm leading-relaxed">
+                            {study.solution}
+                          </p>
+                        </div>
+
+                        <div className="mb-4">
+                          <div className="flex justify-between text-sm text-gray-600 mb-2">
+                            <span>Timeline:</span>
+                            <span className="font-medium text-[#074edb]">{study.timeline}</span>
+                          </div>
+                          <div className="flex justify-between text-sm text-gray-600 mb-3">
+                            <span>Investment:</span>
+                            <span className="font-medium text-[#074edb]">{study.investment}</span>
+                          </div>
+                        </div>
+                        
+                        <div className="mb-4">
+                          <h4 className="font-semibold text-gray-900 mb-2">Success Story</h4>
+                          <p className="text-gray-600 text-sm leading-relaxed italic">
+                            "{study.successStory}"
+                          </p>
+                        </div>
+                        
+                        <div>
+                          <h4 className="font-semibold text-gray-900 mb-3">Results</h4>
+                          <div className="space-y-2">
+                            {study.results.map((result, resultIndex) => (
+                              <div key={resultIndex} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
+                                <span className="text-sm text-gray-600">{result.metric}</span>
+                                <span className="text-sm font-semibold text-[#074edb]">{result.value}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="p-6 pt-0">
+                        <Button className="w-full bg-white border-2 border-gray-300 text-gray-700 hover:border-[#074edb] hover:text-[#074edb]">
                           Read Full Case Study
-                          <ArrowRight className="ml-2 h-4 w-4" />
+                          <span className="ml-2">→</span>
                         </Button>
                       </div>
-                    </div>
-                  </motion.div>
+                    </motion.div>
+                  </FadeInSection>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Client Testimonials */}
+          <section className="py-16 sm:py-20 bg-white">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <FadeInSection>
+                <div className="text-center mb-16">
+                  <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                    What Our Clients Say
+                  </h2>
+                  <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Don't just take our word for it - hear from businesses we've helped grow.
+                  </p>
+                </div>
+              </FadeInSection>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {testimonials.map((testimonial, index) => (
+                  <FadeInSection key={index} delay={index * 0.1}>
+                    <motion.div
+                      whileHover={{ y: -5 }}
+                      transition={{ duration: 0.2 }}
+                      className="bg-gradient-to-br from-blue-50 to-white p-8 rounded border border-blue-100"
+                    >
+                      <div className="flex items-center mb-4">
+                        <img
+                          src={testimonial.avatar}
+                          alt={testimonial.author}
+                          className="w-12 h-12 rounded-full mr-4"
+                        />
+                        <div>
+                          <div className="font-semibold text-gray-900">{testimonial.author}</div>
+                          <div className="text-sm text-gray-600">{testimonial.position}</div>
+                        </div>
+                      </div>
+                      <p className="text-gray-700 italic">"{testimonial.quote}"</p>
+                    </motion.div>
+                  </FadeInSection>
                 ))}
               </div>
             </div>
@@ -266,26 +339,21 @@ export function ResultsPage() {
           <section className="py-16 sm:py-20 bg-gradient-to-r from-[#074edb] to-blue-700 text-white">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-3xl mx-auto text-center">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                >
+                <FadeInSection>
                   <h2 className="text-3xl sm:text-4xl font-bold mb-6">
                     Ready to Achieve Similar Results?
                   </h2>
                   <p className="text-xl text-blue-100 mb-8">
-                    Let's discuss how we can help your business grow with proven digital marketing strategies.
+                    Join hundreds of businesses that have transformed their growth with our proven strategies.
                   </p>
                   <Button 
                     className="bg-white text-[#074edb] hover:bg-gray-100 px-8 py-4 text-lg h-auto"
                     onClick={() => window.location.href = '/contact'}
                   >
                     Get Your Free Strategy Session
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    <span className="ml-2">→</span>
                   </Button>
-                </motion.div>
+                </FadeInSection>
               </div>
             </div>
           </section>
