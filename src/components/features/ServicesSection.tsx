@@ -86,12 +86,12 @@ export function ServicesSection() {
             >
               <div className="flex flex-col sm:flex-row gap-6">
                 <div className={`flex-shrink-0 w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center`}>
-                  {/* Simple div with emoji or text instead of icon component */}
+                  {/* Simple div with text instead of emoji */}
                   <div className="text-white text-2xl font-bold">
-                    {service.icon === "megaphone" && "📢"}
-                    {service.icon === "search" && "🔍"}
-                    {service.icon === "share" && "↗️"}
-                    {service.icon === "bar-chart" && "📊"}
+                    {service.icon === "megaphone" && "AD"}
+                    {service.icon === "search" && "SEO"}
+                    {service.icon === "share" && "SM"}
+                    {service.icon === "bar-chart" && "AN"}
                   </div>
                 </div>
                 
