@@ -9,7 +9,7 @@ export function ProcessSection() {
       id: 1,
       title: "Discovery & Strategy",
       description: "We deep dive into your business goals, target audience, and competitive landscape to craft a winning marketing strategy.",
-      icon: "🎯",
+      icon: "",
       color: "from-blue-500 to-blue-600",
       details: [
         "Comprehensive business audit",
@@ -22,7 +22,7 @@ export function ProcessSection() {
       id: 2,
       title: "Campaign Development",
       description: "Our team builds high-impact campaigns using cutting-edge tools and proven methodologies tailored to your unique needs.",
-      icon: "⚙️",
+      icon: "",
       color: "from-purple-500 to-purple-600",
       details: [
         "Campaign strategy creation",
@@ -35,7 +35,7 @@ export function ProcessSection() {
       id: 3,
       title: "Execution & Optimization",
       description: "We launch your campaigns and continuously optimize for maximum performance using real-time data and insights.",
-      icon: "🚀",
+      icon: "",
       color: "from-green-500 to-green-600",
       details: [
         "Campaign launch",
@@ -48,7 +48,7 @@ export function ProcessSection() {
       id: 4,
       title: "Results & Growth",
       description: "We deliver measurable results and help you scale successful strategies for sustained business growth.",
-      icon: "📊",
+      icon: "",
       color: "from-orange-500 to-orange-600",
       details: [
         "Detailed performance reports",
@@ -84,9 +84,11 @@ export function ProcessSection() {
                   {/* Step content */}
                   <div className={`flex-1 ${index % 2 === 0 ? 'lg:text-right' : 'lg:text-left'} lg:w-1/2`}>
                     <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-                      <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br rounded-2xl mb-6">
-                        <div className="text-2xl">{step.icon}</div>
-                      </div>
+                      {step.icon && (
+                        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br rounded-2xl mb-6">
+                          <div className="text-2xl">{step.icon}</div>
+                        </div>
+                      )}
                       
                       <h3 className="text-2xl font-bold text-gray-900 mb-4">
                         Step {step.id}: {step.title}
