@@ -140,6 +140,8 @@ export function ResultsPage() {
               <FadeInSection>
                 <div className="text-center max-w-3xl mx-auto">
                   <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                    <br/>
+                    <br/>
                     Proven Results That Matter
                   </h1>
                   <p className="text-lg sm:text-xl text-gray-600">
