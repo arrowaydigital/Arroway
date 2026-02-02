@@ -12,7 +12,6 @@ export function ServicesSection() {
       features: ["Google Ads Management", "Social Media Ads", "Retargeting Campaigns"],
       color: "from-blue-500 to-blue-600",
       stats: ["300%+ Average ROI", "Lead Generation", "Brand Awareness"],
-      price: "$2,500/mo+",
       testimonial: {
         name: "Sarah Johnson",
         company: "TechStart Inc.",
@@ -27,7 +26,6 @@ export function ServicesSection() {
       features: ["Technical SEO", "Content Strategy", "Link Building"],
       color: "from-indigo-500 to-indigo-600",
       stats: ["400%+ Traffic Growth", "Keyword Ranking", "Domain Authority"],
-      price: "$1,800/mo+",
       testimonial: {
         name: "Michael Chen",
         company: "GrowthCo",
@@ -42,7 +40,6 @@ export function ServicesSection() {
       features: ["Content Creation", "Community Management", "Brand Strategy"],
       color: "from-purple-500 to-purple-600",
       stats: ["250% Community Growth", "Engagement Rate", "Brand Recognition"],
-      price: "$1,500/mo+",
       testimonial: {
         name: "Emma Rodriguez",
         company: "StyleHub",
@@ -57,7 +54,6 @@ export function ServicesSection() {
       features: ["Performance Tracking", "Custom Reporting", "Strategic Planning"],
       color: "from-cyan-500 to-cyan-600",
       stats: ["Data-Driven Insights", "Growth Strategy", "Performance Optimization"],
-      price: "$1,200/mo+",
       testimonial: {
         name: "David Park",
         company: "FinTech Solutions",
@@ -141,20 +137,13 @@ export function ServicesSection() {
                     </div>
                   </div>
                   
-                  <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                    <div className="flex-1">
-                      <div className="text-center py-3 text-lg font-bold text-[#074edb]">
-                        {service.price}
-                      </div>
-                    </div>
-                    {/* @ts-ignore */}
+                  <div className="flex gap-3 pt-2">
                     <Button 
                       variant="outline" 
                       className="flex-1 border-2 border-gray-200 hover:border-[#074edb] hover:text-[#074edb] transition-colors py-5 sm:py-6"
                     >
                       Learn More
                     </Button>
-                    {/* @ts-ignore */}
                     <Button 
                       className="flex-1 bg-[#074edb] hover:bg-[#063db3] text-white py-5 sm:py-6"
                       onClick={() => window.location.href = '/contact'}
