@@ -20,7 +20,9 @@ export function CaseStudiesSection() {
         { metric: "Revenue", value: "$2.3M in first year" }
       ],
       image: "https://images.unsplash.com/photo-1607082350899-7e105aa886ae?w=600&h=400&fit=crop",
-      color: "from-blue-500 to-blue-600"
+      color: "from-blue-500 to-blue-600",
+      timeline: "6 months",
+      investment: "$8,000/mo"
     },
     {
       id: 2,
@@ -35,7 +37,9 @@ export function CaseStudiesSection() {
         { metric: "Customer Lifetime Value", value: "180% improvement" }
       ],
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      color: "from-purple-500 to-purple-600"
+      color: "from-purple-500 to-purple-600",
+      timeline: "8 months",
+      investment: "$12,000/mo"
     },
     {
       id: 3,
@@ -50,7 +54,9 @@ export function CaseStudiesSection() {
         { metric: "Monthly Revenue", value: "$85K growth" }
       ],
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
-      color: "from-green-500 to-green-600"
+      color: "from-green-500 to-green-600",
+      timeline: "4 months",
+      investment: "$6,500/mo"
     }
   ];
 
@@ -107,11 +113,22 @@ export function CaseStudiesSection() {
                     </p>
                   </div>
                   
-                  <div className="mb-6">
+                  <div className="mb-4">
                     <h4 className="font-semibold text-gray-900 mb-2">Our Solution</h4>
                     <p className="text-gray-600 text-sm leading-relaxed">
                       {study.solution}
                     </p>
+                  </div>
+
+                  <div className="mb-4">
+                    <div className="flex justify-between text-sm text-gray-600 mb-2">
+                      <span>Timeline:</span>
+                      <span className="font-medium text-[#074edb]">{study.timeline}</span>
+                    </div>
+                    <div className="flex justify-between text-sm text-gray-600 mb-3">
+                      <span>Investment:</span>
+                      <span className="font-medium text-[#074edb]">{study.investment}</span>
+                    </div>
                   </div>
                   
                   <div>
