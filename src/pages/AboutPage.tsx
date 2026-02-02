@@ -8,20 +8,20 @@ import { PageTransition } from "@/components/animations/PageTransition";
 export function AboutPage() {
   const teamMembers = [
     {
-      name: "Alex Johnson",
-      role: "Founder & CEO",
+      name: "Mohammed Mufeez",
+      role: "Founder",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
       bio: "10+ years in digital marketing with expertise in AI-driven campaigns and startup growth strategies."
     },
     {
-      name: "Sarah Williams",
-      role: "Head of Strategy",
+      name: "Abdul Raafih",
+      role: "Co-Founder",
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face",
       bio: "Former Google Ads specialist with a track record of 300%+ ROI improvements for clients."
     },
     {
-      name: "Michael Chen",
-      role: "Creative Director",
+      name: "Mohamed Ukaasha",
+      role: "Co-Founder",
       image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
       bio: "Award-winning creative with 8+ years of experience in brand storytelling and content creation."
     }
@@ -65,6 +65,8 @@ export function AboutPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
                 >
+                  <br/>
+                  <br/>
                   <span className="bg-blue-100 text-[#074edb] px-4 py-2 rounded text-sm font-semibold inline-block mb-6">
                     About Arroway
                   </span>
