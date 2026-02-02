@@ -43,7 +43,7 @@ export function ContactSection() {
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="bg-white p-8 rounded-lg shadow-lg border border-gray-100">
+            <div className="bg-white p-8 rounded shadow-lg border border-gray-100">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Send Us a Message
               </h3>
