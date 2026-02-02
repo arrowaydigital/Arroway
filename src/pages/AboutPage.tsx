@@ -6,26 +6,7 @@ import { motion } from "framer-motion";
 import { PageTransition } from "@/components/animations/PageTransition";
 
 export function AboutPage() {
-  const teamMembers = [
-    {
-      name: "Mohammed Mufeez",
-      role: "Founder",
-      image: "/images/mufeez.png",
-      bio: "10+ years in digital marketing with expertise in AI-driven campaigns and startup growth strategies."
-    },
-    {
-      name: "Abdul Raafih",
-      role: "Co-Founder",
-      image: "/images/abdul_raafih.png",
-      bio: "Former Google Ads specialist with a track record of 300%+ ROI improvements for clients."
-    },
-    {
-      name: "Mohamed Ukaasha",
-      role: "Co-Founder",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
-      bio: "Award-winning creative with 8+ years of experience in brand storytelling and content creation."
-    }
-  ];
+
 
   const values = [
     {
@@ -190,65 +171,7 @@ export function AboutPage() {
             </div>
           </section>
 
-          {/* Team Section */}
-          <section className="py-16 sm:py-20 bg-white">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-center mb-16"
-              >
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                  Meet Our Team
-                </h2>
-                <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                  The passionate experts behind your marketing success.
-                </p>
-              </motion.div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {teamMembers.map((member, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
-                  >
-                    <div className="h-64 bg-gray-200 overflow-hidden relative">
-                      <img 
-                        src={member.image} 
-                        alt={member.name}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                          const parent = target.parentElement;
-                          if (parent) {
-                            parent.innerHTML = `
-                              <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-400 to-blue-600">
-                                <div class="text-white text-4xl font-bold">
-                                  ${member.name.charAt(0)}
-                                </div>
-                              </div>
-                            `;
-                          }
-                        }}
-                      />
-                    </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                      <p className="text-[#074edb] font-semibold mb-3">{member.role}</p>
-                      <p className="text-gray-600 text-sm">{member.bio}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </section>
+
 
           {/* Achievements Section */}
           <section className="py-16 sm:py-20 bg-gradient-to-r from-[#074edb] to-blue-700 text-white">
