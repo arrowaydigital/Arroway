@@ -25,6 +25,8 @@ export function HeroSection() {
               transition={{ delay: 0.2, duration: 0.5 }}
               className="inline-block"
             >
+              <br/>
+              <br/>
               <span className="bg-blue-100 text-[#074edb] px-4 py-2 rounded-full text-sm font-semibold">
                 #1 Marketing Partner for Startups
               </span>
