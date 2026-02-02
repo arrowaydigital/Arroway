@@ -10,6 +10,7 @@ export function Header() {
   const location = useLocation();
   
   const navItems = [
+    { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Results", href: "/results" },
     { name: "Testimonials", href: "/testimonials" },
