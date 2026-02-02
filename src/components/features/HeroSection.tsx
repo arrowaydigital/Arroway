@@ -66,31 +66,8 @@ export function HeroSection() {
               </Button>
             </motion.div>
             
-            {/* Trust Indicators */}
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-              className="flex flex-wrap items-center gap-8 pt-4"
-            >
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div
-                      key={i}
-                      className="w-10 h-10 rounded bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-white"
-                    />
-                  ))}
-                </div>
-                <div className="text-sm">
-                  <div className="font-semibold text-gray-900">200+ Clients</div>
-                  <div className="text-gray-600">Growing with us</div>
-                </div>
-              </div>
-            </motion.div>
+            {/* Right Image */}
           </motion.div>
-          
-          {/* Right Image */}
           <motion.div 
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
