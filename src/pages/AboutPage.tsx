@@ -10,13 +10,13 @@ export function AboutPage() {
     {
       name: "Mohammed Mufeez",
       role: "Founder",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+      image: "./images/mufeez.png",
       bio: "10+ years in digital marketing with expertise in AI-driven campaigns and startup growth strategies."
     },
     {
       name: "Abdul Raafih",
       role: "Co-Founder",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face",
+      image: "./images/abdul_raafih.png",
       bio: "Former Google Ads specialist with a track record of 300%+ ROI improvements for clients."
     },
     {
