@@ -10,13 +10,13 @@ export function AboutPage() {
     {
       name: "Mohammed Mufeez",
       role: "Founder",
-      image: "public/images/mufeez.png",
+      image: "/images/mufeez.png",
       bio: "10+ years in digital marketing with expertise in AI-driven campaigns and startup growth strategies."
     },
     {
       name: "Abdul Raafih",
       role: "Co-Founder",
-      image: "public/images/abdul_raafih.png",
+      image: "/images/abdul_raafih.png",
       bio: "Former Google Ads specialist with a track record of 300%+ ROI improvements for clients."
     },
     {
@@ -218,11 +218,25 @@ export function AboutPage() {
                     viewport={{ once: true }}
                     className="bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
                   >
-                    <div className="h-64 bg-gray-200 overflow-hidden">
+                    <div className="h-64 bg-gray-200 overflow-hidden relative">
                       <img 
                         src={member.image} 
                         alt={member.name}
                         className="w-full h-full object-cover"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const parent = target.parentElement;
+                          if (parent) {
+                            parent.innerHTML = `
+                              <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-400 to-blue-600">
+                                <div class="text-white text-4xl font-bold">
+                                  ${member.name.charAt(0)}
+                                </div>
+                              </div>
+                            `;
+                          }
+                        }}
                       />
                     </div>
                     <div className="p-6">
@@ -305,5 +319,3 @@ export function AboutPage() {
     </PageTransition>
   );
 }
-
-
