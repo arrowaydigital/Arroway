@@ -1,4 +1,4 @@
-import React from "react";
+import { Megaphone, Search, Share2, BarChart3 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { FadeInSection } from "@/components/animations/FadeInSection";
@@ -7,27 +7,27 @@ import { motion } from "framer-motion";
 export function HomeServicesPreview() {
   const services = [
     {
-      icon: "📢",
+      icon: Megaphone,
       title: "Paid Advertising",
-      description: "High-impact PPC and social media campaigns that generate qualified leads and deliver 300%+ ROI through data-driven optimization.",
+      description: "Strategic PPC and social media campaigns that drive qualified leads and maximize ROI.",
       color: "from-blue-500 to-blue-600",
     },
     {
-      icon: "🔍",
+      icon: Search,
       title: "SEO & Content",
-      description: "Advanced SEO strategies combined with conversion-focused content that drives organic traffic growth of 400%+ year over year.",
+      description: "Data-driven SEO strategies and compelling content that ranks and converts.",
       color: "from-indigo-500 to-indigo-600",
     },
     {
-      icon: "📱",
+      icon: Share2,
       title: "Social Media",
-      description: "Strategic social media management that builds authentic communities, increases brand awareness by 250%, and drives consistent engagement.",
+      description: "Build engaged communities and strengthen your brand presence across all platforms.",
       color: "from-purple-500 to-purple-600",
     },
     {
-      icon: "📊",
+      icon: BarChart3,
       title: "Analytics & Strategy",
-      description: "Advanced analytics, performance tracking, and growth strategy development that turns data into actionable insights for 200%+ business growth.",
+      description: "Comprehensive analytics and strategic planning tailored to your business goals.",
       color: "from-cyan-500 to-cyan-600",
     },
   ];
@@ -55,7 +55,7 @@ export function HomeServicesPreview() {
                 className="h-full bg-gradient-to-br from-gray-50 to-white p-6 rounded-2xl border border-gray-200 hover:border-[#074edb] hover:shadow-lg transition-all"
               >
                 <div className={`w-12 h-12 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center mb-4`}>
-                  <div className="text-xl">{service.icon}</div>
+                  <service.icon className="h-6 w-6 text-white" />
                 </div>
                 
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
