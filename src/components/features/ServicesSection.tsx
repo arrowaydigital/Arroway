@@ -1,11 +1,11 @@
 import React from "react";
-// Using generic div elements instead of lucide-react icons due to import issues
+import { Megaphone, Search, Share2, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function ServicesSection() {
   const services = [
     {
-      icon: "megaphone", // Using string identifiers instead of actual icon components
+      icon: <Megaphone className="w-8 h-8 text-white" />,
       title: "Paid Advertising (PPC/Social)",
       description:
         "Drive qualified leads with strategic Google Ads, Facebook, and Instagram campaigns optimized for maximum ROI and conversion rates.",
@@ -16,10 +16,11 @@ export function ServicesSection() {
         name: "Sarah Johnson",
         company: "TechStart Inc.",
         quote: "Their PPC campaigns increased our qualified leads by 300% in just 3 months!"
-      }
+      },
+      price: "Start from $2k/mo"
     },
     {
-      icon: "search",
+      icon: <Search className="w-8 h-8 text-white" />,
       title: "SEO & Content Marketing",
       description:
         "Increase organic visibility and attract your ideal customers with data-driven SEO strategies and compelling content that ranks.",
@@ -30,10 +31,11 @@ export function ServicesSection() {
         name: "Michael Chen",
         company: "GrowthCo",
         quote: "Our organic traffic grew 400% year-over-year thanks to their SEO expertise."
-      }
+      },
+      price: "Start from $1.5k/mo"
     },
     {
-      icon: "share",
+      icon: <Share2 className="w-8 h-8 text-white" />,
       title: "Social Media Management",
       description:
         "Build engaged communities and strengthen your brand presence across all major social platforms with consistent, strategic content.",
@@ -44,10 +46,11 @@ export function ServicesSection() {
         name: "Emma Rodriguez",
         company: "StyleHub",
         quote: "Our community grew 250% and engagement rates doubled with their social strategy."
-      }
+      },
+      price: "Start from $1k/mo"
     },
     {
-      icon: "bar-chart",
+      icon: <BarChart3 className="w-8 h-8 text-white" />,
       title: "Analytics & Strategy",
       description:
         "Make informed decisions with comprehensive analytics, performance tracking, and strategic planning tailored to your business goals.",
@@ -58,7 +61,8 @@ export function ServicesSection() {
         name: "David Park",
         company: "FinTech Solutions",
         quote: "Their analytics helped us identify growth opportunities we were missing for years."
-      }
+      },
+      price: "Start from $800/mo"
     },
   ];
 
@@ -67,8 +71,8 @@ export function ServicesSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            <br/>
-            <br/>
+            <br />
+            <br />
             Comprehensive Marketing Solutions
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -84,29 +88,23 @@ export function ServicesSection() {
             >
               <div className="flex flex-col sm:flex-row gap-6">
                 <div className={`flex-shrink-0 w-16 h-16 bg-gradient-to-br ${service.color} rounded flex items-center justify-center`}>
-                  {/* Simple div with text instead of emoji */}
-                  <div className="text-white text-2xl font-bold">
-                    {service.icon === "megaphone" && "AD"}
-                    {service.icon === "search" && "SEO"}
-                    {service.icon === "share" && "SM"}
-                    {service.icon === "bar-chart" && "AN"}
-                  </div>
+                  {service.icon}
                 </div>
-                
+
                 <div className="flex-1 mt-4 sm:mt-0">
                   <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#074edb] transition-colors">
                     {service.title}
                   </h3>
-                  
+
                   <p className="text-gray-600 mb-4 leading-relaxed">
                     {service.description}
                   </p>
-                  
+
                   <div className="mb-5">
                     <h4 className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Key Benefits:</h4>
                     <div className="flex flex-wrap gap-2">
                       {service.stats.map((stat, idx) => (
-                        <span 
+                        <span
                           key={idx}
                           className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-50 text-[#074edb] border border-blue-100 whitespace-nowrap"
                         >
@@ -115,7 +113,7 @@ export function ServicesSection() {
                       ))}
                     </div>
                   </div>
-                  
+
                   <div className="mb-5">
                     <h4 className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">What's Included:</h4>
                     <ul className="space-y-2">
@@ -129,29 +127,27 @@ export function ServicesSection() {
                       ))}
                     </ul>
                   </div>
-                  
+
                   <div className="mb-5">
                     <div className="bg-blue-50 rounded p-4 border border-blue-100">
                       <p className="text-sm italic text-gray-700 mb-2">"{service.testimonial.quote}"</p>
                       <p className="text-xs font-semibold text-[#074edb]">— {service.testimonial.name}, {service.testimonial.company}</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex flex-col sm:flex-row gap-3 pt-2">
                     <div className="flex-1">
                       <div className="text-center py-3 text-lg font-bold text-[#074edb]">
                         {service.price}
                       </div>
                     </div>
-                    {/* @ts-ignore */}
-                    <Button 
-                      variant="outline" 
+                    <Button
+                      variant="outline"
                       className="flex-1 border-2 border-gray-200 hover:border-[#074edb] hover:text-[#074edb] transition-colors py-5 sm:py-6"
                     >
                       Learn More
                     </Button>
-                    {/* @ts-ignore */}
-                    <Button 
+                    <Button
                       className="flex-1 bg-[#074edb] hover:bg-[#063db3] text-white py-5 sm:py-6"
                       onClick={() => window.location.href = '/contact'}
                     >

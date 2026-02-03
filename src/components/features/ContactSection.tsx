@@ -7,6 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 
 export function ContactSection() {
   const { toast } = useToast();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,24 +17,54 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    
+
+    // ✅ WhatsApp number (include country code, no +, no spaces)
+    const phoneNumber = "15551234567"; // ← CHANGE THIS
+
+    // ✅ WhatsApp message format
+    const whatsappMessage = `
+New Contact Enquiry 🚀
+
+Name: ${formData.name}
+Email: ${formData.email}
+Company: ${formData.company || "N/A"}
+
+Message:
+${formData.message}
+    `.trim();
+
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+
+    // ✅ Open WhatsApp
+    window.open(whatsappURL, "_blank");
+
+    // ✅ Success toast
     toast({
-      title: "Message sent!",
-      description: "We'll get back to you within 24 hours.",
+      title: "Redirecting to WhatsApp",
+      description: "Your message is ready to be sent.",
     });
-    
-    setFormData({ name: "", email: "", company: "", message: "" });
+
+    // ✅ Reset form
+    setFormData({
+      name: "",
+      email: "",
+      company: "",
+      message: "",
+    });
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-20 bg-gradient-to-br from-blue-50 via-white to-blue-50">
+    <section
+      id="contact"
+      className="py-16 sm:py-20 bg-gradient-to-br from-blue-50 via-white to-blue-50"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
+          {/* Header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              <br/>
-              <br/>
               Ready to Grow Your Business?
             </h2>
             <p className="text-lg text-gray-600">
@@ -47,71 +78,62 @@ export function ContactSection() {
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Send Us a Message
               </h3>
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Your Name
                   </label>
                   <Input
-                    id="name"
-                    type="text"
                     value={formData.name}
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    placeholder="John Doe"
                     required
-                    className="w-full"
+                    placeholder="John Doe"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Email Address
                   </label>
                   <Input
-                    id="email"
                     type="email"
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    placeholder="john@company.com"
                     required
-                    className="w-full"
+                    placeholder="john@company.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Company Name
                   </label>
                   <Input
-                    id="company"
-                    type="text"
                     value={formData.company}
                     onChange={(e) =>
                       setFormData({ ...formData, company: e.target.value })
                     }
                     placeholder="Your Company"
-                    className="w-full"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
                     Message
                   </label>
                   <Textarea
-                    id="message"
+                    rows={4}
                     value={formData.message}
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
                     }
-                    placeholder="Tell us about your marketing goals..."
-                    rows={4}
                     required
-                    className="w-full"
+                    placeholder="Tell us about your marketing goals..."
                   />
                 </div>
 
@@ -119,66 +141,35 @@ export function ContactSection() {
                   type="submit"
                   className="w-full bg-[#074edb] hover:bg-[#063db3] text-white py-6 text-lg"
                 >
-                  Get Free Consultation
+                  Send via WhatsApp
                 </Button>
               </form>
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Get In Touch
-                </h3>
-                <p className="text-gray-600 mb-8">
-                  Have questions? We're here to help. Reach out through any of these channels.
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded flex items-center justify-center flex-shrink-0">
-                    <Mail className="h-6 w-6 text-[#074edb]" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900 mb-1">Email Us</div>
-                    <div className="text-gray-600">info@arroway.com</div>
-                    <div className="text-gray-600">support@arroway.com</div>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded flex items-center justify-center flex-shrink-0">
-                    <Phone className="h-6 w-6 text-[#074edb]" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900 mb-1">Call Us</div>
-                    <div className="text-gray-600">+1 (555) 123-4567</div>
-                    <div className="text-sm text-gray-500">Mon-Fri 9am-6pm EST</div>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded flex items-center justify-center flex-shrink-0">
-                    <MapPin className="h-6 w-6 text-[#074edb]" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900 mb-1">Visit Us</div>
-                    <div className="text-gray-600">123 Marketing Avenue</div>
-                    <div className="text-gray-600">New York, NY 10001</div>
-                  </div>
+            <div className="space-y-6">
+              <div className="flex gap-4">
+                <Mail className="text-[#074edb]" />
+                <div>
+                  <p className="font-semibold">Email</p>
+                  <p className="text-gray-600">info@arroway.com</p>
                 </div>
               </div>
 
-              {/* CTA Box */}
-              <div className="bg-gradient-to-br from-[#074edb] to-[#063db3] p-8 rounded text-white mt-8">
-                <h4 className="text-xl font-bold mb-2">Free Marketing Audit</h4>
-                <p className="text-blue-100 mb-4">
-                  Get a comprehensive analysis of your current marketing strategy.
-                </p>
-                <Button className="bg-white text-[#074edb] hover:bg-gray-100 w-full">
-                  Claim Your Audit
-                </Button>
+              <div className="flex gap-4">
+                <Phone className="text-[#074edb]" />
+                <div>
+                  <p className="font-semibold">Phone</p>
+                  <p className="text-gray-600">+1 (555) 123-4567</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <MapPin className="text-[#074edb]" />
+                <div>
+                  <p className="font-semibold">Location</p>
+                  <p className="text-gray-600">New York, USA</p>
+                </div>
               </div>
             </div>
           </div>
