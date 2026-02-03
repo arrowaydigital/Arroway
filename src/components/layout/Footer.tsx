@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-1">
-            <img src="images/IMG_20260202_130156.png" alt="Arroway Footer Logo" width={150} height={40} className="mb-4 h-10 object-contain" />
+            <img src="public/images/footer_logo.png" alt="Arroway Footer Logo" width={150} height={40} className="mb-4 h-10 object-contain" />
             <p className="text-blue-100 text-sm">
               Data-driven digital marketing solutions for growing businesses.
             </p>
