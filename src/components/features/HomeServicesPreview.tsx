@@ -112,21 +112,7 @@ export function HomeServicesPreview() {
           ))}
         </div>
 
-        <FadeInSection delay={0.4}>
-          <div className="text-center mt-20">
-            <div className="inline-block bg-white rounded-2xl p-8 border border-gray-200 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to transform your business?</h3>
-              <p className="text-gray-600 mb-6 max-w-md mx-auto">
-                Let's discuss how our proven strategies can accelerate your growth journey.
-              </p>
-              <Link to="/contact">
-                <Button className="bg-[#074edb] hover:bg-[#063db3] text-white px-8 py-4 text-lg h-auto">
-                  Get Your Free Strategy Session
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </FadeInSection>
+
       </div>
     </section>
   );
