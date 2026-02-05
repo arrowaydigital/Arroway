@@ -19,7 +19,7 @@ export function ContactSection() {
     e.preventDefault();
 
     // ✅ WhatsApp number (include country code, no +, no spaces)
-    const phoneNumber = "15551234567"; // ← CHANGE THIS
+    const phoneNumber = "+916379644145"; // ← CHANGE THIS
 
     // ✅ WhatsApp message format
     const whatsappMessage = `
@@ -65,6 +65,8 @@ ${formData.message}
           {/* Header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              <br/>
+              <br/>
               Ready to Grow Your Business?
             </h2>
             <p className="text-lg text-gray-600">
