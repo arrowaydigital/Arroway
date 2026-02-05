@@ -338,7 +338,6 @@ export function ResultsPage() {
 
 
         </main>
-        <Footer />
       </div>
     </PageTransition>
   );
