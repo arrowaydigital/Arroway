@@ -1,3 +1,6 @@
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { PageTransition } from "@/components/animations/PageTransition";
 import { FadeInSection } from "@/components/animations/FadeInSection";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -127,230 +130,215 @@ export function ResultsPage() {
   ];
 
   return (
-    <>
-      {/* Page Header */}
-      <section className="pt-24 sm:pt-28 pb-12 bg-gradient-to-br from-blue-50 via-white to-blue-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeInSection>
-            <div className="text-center max-w-3xl mx-auto">
-              <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-                <br />
-                Proven Results That Matter
-              </h1>
-              <p className="text-lg sm:text-xl text-gray-600">
-                We measure success by your growth. Here's what we've achieved for our clients.
-              </p>
-            </div>
-          </FadeInSection>
-        </div>
-      </section>
-
-      {/* Metrics Grid */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeInSection>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                Our Impact
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                The measurable results we've delivered for businesses like yours.
-              </p>
-            </div>
-          </FadeInSection>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {metrics.map((metric, index) => (
-              <FadeInSection key={metric.label} delay={index * 0.1}>
-                <motion.div
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  transition={{ duration: 0.2 }}
-                  className="bg-gradient-to-br from-blue-50 to-white p-8 rounded border border-blue-100 hover:shadow-lg transition-shadow h-full"
-                >
-                  <div className="w-12 h-12 bg-[#074edb] rounded flex items-center justify-center mb-4">
-                    {metric.icon && <span className="text-xl">{metric.icon}</span>}
-                  </div>
-                  <div className="text-4xl font-bold text-gray-900 mb-2">
-                    {metric.value}
-                  </div>
-                  <div className="text-lg font-semibold text-gray-700 mb-1">
-                    {metric.label}
-                  </div>
-                  <div className="text-sm text-gray-600">{metric.description}</div>
-                </motion.div>
+    <PageTransition>
+      <div className="min-h-screen">
+        <Header />
+        <main>
+          {/* Page Header */}
+          <section className="pt-24 sm:pt-28 pb-12 bg-gradient-to-br from-blue-50 via-white to-blue-50">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <FadeInSection>
+                <div className="text-center max-w-3xl mx-auto">
+                  <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                    <br/>
+                    Proven Results That Matter
+                  </h1>
+                  <p className="text-lg sm:text-xl text-gray-600">
+                    We measure success by your growth. Here's what we've achieved for our clients.
+                  </p>
+                </div>
               </FadeInSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Detailed Case Studies */}
-      <section className="py-16 sm:py-20 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeInSection>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                Success Stories
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Real businesses, real results, real impact.
-              </p>
             </div>
-          </FadeInSection>
+          </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 sm:mb-16">
-            {detailedCaseStudies.map((study, index) => (
-              <FadeInSection key={study.id} delay={index * 0.1}>
-                <motion.div
-                  whileHover={{ scale: 1.02, y: -5 }}
-                  transition={{ duration: 0.2 }}
-                  className="bg-white rounded border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition-all h-full flex flex-col"
-                >
-                  <div className="relative">
-                    <img
-                      src={study.image}
-                      alt={study.title}
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className={`absolute top-4 right-4 bg-gradient-to-br ${study.color} rounded p-3 shadow-lg`}>
-                      <div className="h-6 w-6 text-white font-bold text-center text-xs">ROI</div>
-                    </div>
-                  </div>
-
-                  <div className="p-6 flex-grow">
-                    <div className="mb-4">
-                      <span className="inline-block bg-blue-100 text-[#074edb] px-3 py-1 rounded text-sm font-medium mb-2">
-                        {study.industry}
-                      </span>
-                      <h3 className="text-xl font-bold text-gray-900 mt-3 mb-2">
-                        {study.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        For {study.client}
-                      </p>
-                    </div>
-
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-gray-900 mb-2">The Challenge</h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        {study.challenge}
-                      </p>
-                    </div>
-
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-gray-900 mb-2">Our Solution</h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        {study.solution}
-                      </p>
-                    </div>
-
-                    <div className="mb-4">
-                      <div className="flex justify-between text-sm text-gray-600 mb-2">
-                        <span>Timeline:</span>
-                        <span className="font-medium text-[#074edb]">{study.timeline}</span>
+          {/* Metrics Grid */}
+          <section className="py-16 sm:py-20 bg-white">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <FadeInSection>
+                <div className="text-center mb-16">
+                  <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                    Our Impact
+                  </h2>
+                  <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    The measurable results we've delivered for businesses like yours.
+                  </p>
+                </div>
+              </FadeInSection>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                {metrics.map((metric, index) => (
+                  <FadeInSection key={metric.label} delay={index * 0.1}>
+                    <motion.div
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      transition={{ duration: 0.2 }}
+                      className="bg-gradient-to-br from-blue-50 to-white p-8 rounded border border-blue-100 hover:shadow-lg transition-shadow h-full"
+                    >
+                      <div className="w-12 h-12 bg-[#074edb] rounded flex items-center justify-center mb-4">
+                        {metric.icon && <span className="text-xl">{metric.icon}</span>}
                       </div>
-                      <div className="flex justify-between text-sm text-gray-600 mb-3">
-                        <span>Investment:</span>
-                        <span className="font-medium text-[#074edb]">{study.investment}</span>
+                      <div className="text-4xl font-bold text-gray-900 mb-2">
+                        {metric.value}
                       </div>
-                    </div>
+                      <div className="text-lg font-semibold text-gray-700 mb-1">
+                        {metric.label}
+                      </div>
+                      <div className="text-sm text-gray-600">{metric.description}</div>
+                    </motion.div>
+                  </FadeInSection>
+                ))}
+              </div>
+            </div>
+          </section>
 
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-gray-900 mb-2">Success Story</h4>
-                      <p className="text-gray-600 text-sm leading-relaxed italic">
-                        "{study.successStory}"
-                      </p>
-                    </div>
+          {/* Detailed Case Studies */}
+          <section className="py-16 sm:py-20 bg-gray-50">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <FadeInSection>
+                <div className="text-center mb-16">
+                  <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                    Success Stories
+                  </h2>
+                  <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Real businesses, real results, real impact.
+                  </p>
+                </div>
+              </FadeInSection>
 
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-3">Results</h4>
-                      <div className="space-y-2">
-                        {study.results.map((result, resultIndex) => (
-                          <div key={resultIndex} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
-                            <span className="text-sm text-gray-600">{result.metric}</span>
-                            <span className="text-sm font-semibold text-[#074edb]">{result.value}</span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 sm:mb-16">
+                {detailedCaseStudies.map((study, index) => (
+                  <FadeInSection key={study.id} delay={index * 0.1}>
+                    <motion.div
+                      whileHover={{ scale: 1.02, y: -5 }}
+                      transition={{ duration: 0.2 }}
+                      className="bg-white rounded border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition-all h-full flex flex-col"
+                    >
+                      <div className="relative">
+                        <img
+                          src={study.image}
+                          alt={study.title}
+                          className="w-full h-48 object-cover"
+                        />
+                        <div className={`absolute top-4 right-4 bg-gradient-to-br ${study.color} rounded p-3 shadow-lg`}>
+                          <div className="h-6 w-6 text-white font-bold text-center text-xs">ROI</div>
+                        </div>
+                      </div>
+                      
+                      <div className="p-6 flex-grow">
+                        <div className="mb-4">
+                          <span className="inline-block bg-blue-100 text-[#074edb] px-3 py-1 rounded text-sm font-medium mb-2">
+                            {study.industry}
+                          </span>
+                          <h3 className="text-xl font-bold text-gray-900 mt-3 mb-2">
+                            {study.title}
+                          </h3>
+                          <p className="text-gray-600 text-sm">
+                            For {study.client}
+                          </p>
+                        </div>
+                        
+                        <div className="mb-4">
+                          <h4 className="font-semibold text-gray-900 mb-2">The Challenge</h4>
+                          <p className="text-gray-600 text-sm leading-relaxed">
+                            {study.challenge}
+                          </p>
+                        </div>
+                        
+                        <div className="mb-4">
+                          <h4 className="font-semibold text-gray-900 mb-2">Our Solution</h4>
+                          <p className="text-gray-600 text-sm leading-relaxed">
+                            {study.solution}
+                          </p>
+                        </div>
+
+                        <div className="mb-4">
+                          <div className="flex justify-between text-sm text-gray-600 mb-2">
+                            <span>Timeline:</span>
+                            <span className="font-medium text-[#074edb]">{study.timeline}</span>
                           </div>
-                        ))}
+                          <div className="flex justify-between text-sm text-gray-600 mb-3">
+                            <span>Investment:</span>
+                            <span className="font-medium text-[#074edb]">{study.investment}</span>
+                          </div>
+                        </div>
+                        
+                        <div className="mb-4">
+                          <h4 className="font-semibold text-gray-900 mb-2">Success Story</h4>
+                          <p className="text-gray-600 text-sm leading-relaxed italic">
+                            "{study.successStory}"
+                          </p>
+                        </div>
+                        
+                        <div>
+                          <h4 className="font-semibold text-gray-900 mb-3">Results</h4>
+                          <div className="space-y-2">
+                            {study.results.map((result, resultIndex) => (
+                              <div key={resultIndex} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
+                                <span className="text-sm text-gray-600">{result.metric}</span>
+                                <span className="text-sm font-semibold text-[#074edb]">{result.value}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-
-                  <div className="p-6 pt-0">
-                    <Button className="w-full bg-white border-2 border-gray-300 text-gray-700 hover:border-[#074edb] hover:text-[#074edb]">
-                      Read Full Case Study
-                      <span className="ml-2">→</span>
-                    </Button>
-                  </div>
-                </motion.div>
-              </FadeInSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Client Testimonials */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeInSection>
-            <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                What Our Clients Say
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Don't just take our word for it - hear from businesses we've helped grow.
-              </p>
+                      
+                      <div className="p-6 pt-0">
+                        <Button className="w-full bg-white border-2 border-gray-300 text-gray-700 hover:border-[#074edb] hover:text-[#074edb]">
+                          Read Full Case Study
+                          <span className="ml-2">→</span>
+                        </Button>
+                      </div>
+                    </motion.div>
+                  </FadeInSection>
+                ))}
+              </div>
             </div>
-          </FadeInSection>
+          </section>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <FadeInSection key={index} delay={index * 0.1}>
-                <motion.div
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.2 }}
-                  className="bg-gradient-to-br from-blue-50 to-white p-6 sm:p-8 rounded border border-blue-100"
-                >
-                  <div className="flex items-center mb-4">
-                    <img
-                      src={testimonial.avatar}
-                      alt={testimonial.author}
-                      className="w-12 h-12 rounded-full mr-4"
-                    />
-                    <div>
-                      <div className="font-semibold text-gray-900">{testimonial.author}</div>
-                      <div className="text-sm text-gray-600">{testimonial.position}</div>
-                    </div>
-                  </div>
-                  <p className="text-gray-700 italic">"{testimonial.quote}"</p>
-                </motion.div>
+          {/* Client Testimonials */}
+          <section className="py-16 sm:py-20 bg-white">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <FadeInSection>
+                <div className="text-center mb-12 sm:mb-16">
+                  <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                    What Our Clients Say
+                  </h2>
+                  <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Don't just take our word for it - hear from businesses we've helped grow.
+                  </p>
+                </div>
               </FadeInSection>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="py-16 sm:py-20 bg-gradient-to-r from-[#074edb] to-blue-700 text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <FadeInSection>
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-                Ready to Achieve Similar Results?
-              </h2>
-              <p className="text-xl text-blue-100 mb-8">
-                Join hundreds of businesses that have transformed their growth with our proven strategies.
-              </p>
-              <Button
-                className="bg-white text-[#074edb] hover:bg-gray-100 px-8 py-4 text-lg h-auto"
-                onClick={() => window.location.href = '/contact'}
-              >
-                Get Your Free Strategy Session
-                <span className="ml-2">→</span>
-              </Button>
-            </FadeInSection>
-          </div>
-        </div>
-      </section>
-    </>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {testimonials.map((testimonial, index) => (
+                  <FadeInSection key={index} delay={index * 0.1}>
+                    <motion.div
+                      whileHover={{ y: -5 }}
+                      transition={{ duration: 0.2 }}
+                      className="bg-gradient-to-br from-blue-50 to-white p-6 sm:p-8 rounded border border-blue-100"
+                    >
+                      <div className="flex items-center mb-4">
+                        <img
+                          src={testimonial.avatar}
+                          alt={testimonial.author}
+                          className="w-12 h-12 rounded-full mr-4"
+                        />
+                        <div>
+                          <div className="font-semibold text-gray-900">{testimonial.author}</div>
+                          <div className="text-sm text-gray-600">{testimonial.position}</div>
+                        </div>
+                      </div>
+                      <p className="text-gray-700 italic">"{testimonial.quote}"</p>
+                    </motion.div>
+                  </FadeInSection>
+                ))}
+              </div>
+            </div>
+          </section>
+
+
+        </main>
+        <Footer />
+      </div>
+    </PageTransition>
   );
 }
