@@ -4,29 +4,30 @@ import { PageTransition } from "@/components/animations/PageTransition";
 import { FadeInSection } from "@/components/animations/FadeInSection";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { TrendingUp, Users, Award, Target } from "lucide-react";
 
 export function ResultsPage() {
   const metrics = [
     {
-      icon: "",
+      icon: TrendingUp,
       value: "347%",
       label: "Average ROI",
       description: "Across all campaigns",
     },
     {
-      icon: "",
+      icon: Users,
       value: "200+",
       label: "Active Clients",
       description: "Small businesses & startups",
     },
     {
-      icon: "",
+      icon: Award,
       value: "98%",
       label: "Client Satisfaction",
       description: "Rating from reviews",
     },
     {
-      icon: "",
+      icon: Target,
       value: "$12M+",
       label: "Ad Spend Managed",
       description: "Optimized for performance",
@@ -174,7 +175,7 @@ export function ResultsPage() {
                       className="bg-gradient-to-br from-blue-50 to-white p-8 rounded border border-blue-100 hover:shadow-lg transition-shadow h-full"
                     >
                       <div className="w-12 h-12 bg-[#074edb] rounded flex items-center justify-center mb-4">
-                        {metric.icon && <span className="text-xl">{metric.icon}</span>}
+                        {metric.icon && <metric.icon className="h-6 w-6 text-white" />}
                       </div>
                       <div className="text-4xl font-bold text-gray-900 mb-2">
                         {metric.value}
