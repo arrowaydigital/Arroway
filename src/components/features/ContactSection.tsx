@@ -69,7 +69,7 @@ export function ContactSection() {
       const whatsappMessage = prepareWhatsAppMessage(formData);
       
       // WhatsApp number (include country code, no +, no spaces)
-      const phoneNumber = "+916379644145"; // ← CHANGE THIS
+      const phoneNumber = "916379644145"; // Updated to Indian number without +
 
       const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -128,14 +128,14 @@ export function ContactSection() {
     {
       icon: <Phone className="text-[#074edb] flex-shrink-0 mt-1" />,
       title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
+      value: "+91 63796 44145",
+      link: "tel:+916379644145",
     },
     {
       icon: <Globe className="text-[#074edb] flex-shrink-0 mt-1" />,
-      title: "Office",
-      value: "123 Business Ave, Suite 100, New York, NY 10001",
-      link: "https://maps.google.com/?q=123+Business+Ave,+Suite+100,+New+York,+NY+10001",
+      title: "Address",
+      value: "Karur, Tamil Nadu, India",
+      link: "https://maps.google.com/?q=Karur,+Tamil+Nadu,+India",
     },
     {
       icon: <Clock className="text-[#074edb] flex-shrink-0 mt-1" />,
