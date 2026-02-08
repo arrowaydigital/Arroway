@@ -51,10 +51,10 @@ export function ContactSection() {
     setIsLoading(true);
 
     try {
-      // ✅ WhatsApp number (include country code, no +, no spaces)
+      // WhatsApp number (include country code, no +, no spaces)
       const phoneNumber = "+916379644145"; // ← CHANGE THIS
 
-      // ✅ WhatsApp message format
+      // WhatsApp message format
       const whatsappMessage = `
 New Contact Enquiry
 
@@ -70,17 +70,17 @@ ${formData.message}
         whatsappMessage
       )}`;
 
-      // ✅ Open WhatsApp
+      // Open WhatsApp
       window.open(whatsappURL, "_blank");
 
-      // ✅ Success toast
+      // Success toast
       toast({
         title: "Message Ready!",
         description: "Your message is being prepared for WhatsApp.",
         className: "bg-green-500 text-white",
       });
 
-      // ✅ Reset form
+      // Reset form
       setFormData({
         name: "",
         email: "",
