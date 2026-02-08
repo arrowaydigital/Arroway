@@ -4,9 +4,14 @@ import { PageTransition } from "@/components/animations/PageTransition";
 import { FadeInSection } from "@/components/animations/FadeInSection";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, Users, Award, Target } from "lucide-react";
+import { TrendingUp, Users, Award, Target, ChevronRight, Play, BarChart3 } from "lucide-react";
+import { AnimatedMetricCard } from "@/components/ui/AnimatedMetricCard";
+
+import { useState } from "react";
 
 export function ResultsPage() {
+  const [activeFilter, setActiveFilter] = useState('All');
+  
   const metrics = [
     {
       icon: TrendingUp,
@@ -106,9 +111,12 @@ export function ResultsPage() {
       image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&h=400&fit=crop",
       color: "from-red-500 to-red-600",
       successStory: "Urban Bites created a strong digital ecosystem that drove both online orders and foot traffic to their physical locations."
-    }
+    },
   ];
-
+  
+  // Get unique industries for filter options
+  const industries = ['All', ...new Set(detailedCaseStudies.map(study => study.industry))];
+    
   const testimonials = [
     {
       quote: "The results exceeded our expectations. We've seen a 340% increase in conversion rate and over $2.3M in revenue in just 6 months.",
@@ -147,6 +155,8 @@ export function ResultsPage() {
                   <p className="text-lg sm:text-xl text-gray-600">
                     We measure success by your growth. Here's what we've achieved for our clients.
                   </p>
+                  <div className="mt-8 flex justify-center gap-4">
+                  </div>
                 </div>
               </FadeInSection>
             </div>
@@ -157,39 +167,51 @@ export function ResultsPage() {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <FadeInSection>
                 <div className="text-center mb-16">
-                  <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                    Our Impact
-                  </h2>
+                  <div className="inline-flex items-center justify-center gap-2 mb-4">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+                      Our Impact
+                    </h2>
+                  </div>
                   <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                     The measurable results we've delivered for businesses like yours.
                   </p>
                 </div>
               </FadeInSection>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {metrics.map((metric, index) => (
-                  <FadeInSection key={metric.label} delay={index * 0.1}>
-                    <motion.div
-                      whileHover={{ scale: 1.05, y: -5 }}
-                      transition={{ duration: 0.2 }}
-                      className="bg-gradient-to-br from-blue-50 to-white p-8 rounded border border-blue-100 hover:shadow-lg transition-shadow h-full"
-                    >
-                      <div className="w-12 h-12 bg-[#074edb] rounded flex items-center justify-center mb-4">
-                        {metric.icon && <metric.icon className="h-6 w-6 text-white" />}
-                      </div>
-                      <div className="text-4xl font-bold text-gray-900 mb-2">
-                        {metric.value}
-                      </div>
-                      <div className="text-lg font-semibold text-gray-700 mb-1">
-                        {metric.label}
-                      </div>
-                      <div className="text-sm text-gray-600">{metric.description}</div>
-                    </motion.div>
-                  </FadeInSection>
+                  <AnimatedMetricCard
+                    key={metric.label}
+                    icon={<metric.icon className="h-6 w-6 text-white" />}
+                    value={metric.value}
+                    label={metric.label}
+                    description={metric.description}
+                    animationDelay={index}
+                  />
                 ))}
               </div>
             </div>
           </section>
+
+          {/* Filter Controls */}
+          <div className="py-6 bg-white">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-wrap justify-center gap-2 mb-2" role="tablist" aria-label="Industry filters">
+                {industries.map((industry) => (
+                  <button 
+                    key={industry}
+                    onClick={() => setActiveFilter(industry)}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeFilter === industry ? 'bg-[#074edb] text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+                    role="tab"
+                    aria-selected={activeFilter === industry}
+                    tabIndex={activeFilter === industry ? 0 : -1}
+                  >
+                    {industry}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
 
           {/* Detailed Case Studies */}
           <section className="py-16 sm:py-20 bg-gray-50">
@@ -205,87 +227,98 @@ export function ResultsPage() {
                 </div>
               </FadeInSection>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 sm:mb-16">
-                {detailedCaseStudies.map((study, index) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 sm:mb-16">
+                {detailedCaseStudies
+                  .filter(study => activeFilter === 'All' || study.industry === activeFilter)
+                  .map((study, index) => (
                   <FadeInSection key={study.id} delay={index * 0.1}>
                     <motion.div
-                      whileHover={{ scale: 1.02, y: -5 }}
-                      transition={{ duration: 0.2 }}
-                      className="bg-white rounded border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition-all h-full flex flex-col"
+                      whileHover={{ y: -10 }}
+                      transition={{ duration: 0.3 }}
+                      className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 h-full flex flex-col border border-gray-100"
                     >
                       <div className="relative">
                         <img
                           src={study.image}
                           alt={study.title}
-                          className="w-full h-48 object-cover"
+                          className="w-full h-52 object-cover"
                         />
-                        <div className={`absolute top-4 right-4 bg-gradient-to-br ${study.color} rounded p-3 shadow-lg`}>
-                          
+                        <div className={`absolute bottom-4 left-4 bg-gradient-to-r ${study.color} text-white px-4 py-2 rounded-lg shadow-lg`}>
+                          {study.industry}
                         </div>
                       </div>
                       
-                      <div className="p-6 flex-grow">
-                        <div className="mb-4">
-                          <span className="inline-block bg-blue-100 text-[#074edb] px-3 py-1 rounded text-sm font-medium mb-2">
-                            {study.industry}
-                          </span>
-                          <h3 className="text-xl font-bold text-gray-900 mt-3 mb-2">
+                      <div className="p-7 flex-grow">
+                        <div className="mb-5">
+                          <h3 className="text-xl font-bold text-gray-900 mb-1">
                             {study.title}
                           </h3>
-                          <p className="text-gray-600 text-sm">
+                          <p className="text-gray-600 text-sm font-medium">
                             For {study.client}
                           </p>
                         </div>
                         
-                        <div className="mb-4">
-                          <h4 className="font-semibold text-gray-900 mb-2">The Challenge</h4>
-                          <p className="text-gray-600 text-sm leading-relaxed">
+                        <div className="mb-5">
+                          <div className="flex items-center mb-3">
+                            <BarChart3 className="h-5 w-5 text-blue-500 mr-2" />
+                            <h4 className="font-semibold text-gray-900">The Challenge</h4>
+                          </div>
+                          <p className="text-gray-600 text-sm leading-relaxed pl-7">
                             {study.challenge}
                           </p>
                         </div>
                         
-                        <div className="mb-4">
-                          <h4 className="font-semibold text-gray-900 mb-2">Our Solution</h4>
-                          <p className="text-gray-600 text-sm leading-relaxed">
+                        <div className="mb-5">
+                          <div className="flex items-center mb-3">
+                            <Play className="h-5 w-5 text-green-500 mr-2" />
+                            <h4 className="font-semibold text-gray-900">Our Solution</h4>
+                          </div>
+                          <p className="text-gray-600 text-sm leading-relaxed pl-7">
                             {study.solution}
                           </p>
                         </div>
 
-                        <div className="mb-4">
-                          <div className="flex justify-between text-sm text-gray-600 mb-2">
-                            <span>Timeline:</span>
-                            <span className="font-medium text-[#074edb]">{study.timeline}</span>
+                        <div className="grid grid-cols-2 gap-4 mb-5">
+                          <div className="bg-gray-50 p-3 rounded-lg">
+                            <div className="text-xs text-gray-500">Timeline</div>
+                            <div className="font-semibold text-gray-900">{study.timeline}</div>
                           </div>
-                          <div className="flex justify-between text-sm text-gray-600 mb-3">
-                            <span>Investment:</span>
-                            <span className="font-medium text-[#074edb]">{study.investment}</span>
+                          <div className="bg-gray-50 p-3 rounded-lg">
+                            <div className="text-xs text-gray-500">Investment</div>
+                            <div className="font-semibold text-gray-900">{study.investment}</div>
                           </div>
                         </div>
                         
-                        <div className="mb-4">
-                          <h4 className="font-semibold text-gray-900 mb-2">Success Story</h4>
-                          <p className="text-gray-600 text-sm leading-relaxed italic">
+                        <div className="mb-5">
+                          <div className="flex items-center mb-3">
+                            <Award className="h-5 w-5 text-amber-500 mr-2" />
+                            <h4 className="font-semibold text-gray-900">Success Story</h4>
+                          </div>
+                          <p className="text-gray-600 text-sm leading-relaxed pl-7 italic">
                             "{study.successStory}"
                           </p>
                         </div>
                         
-                        <div>
-                          <h4 className="font-semibold text-gray-900 mb-3">Results</h4>
-                          <div className="space-y-2">
+                        <div className="mb-6">
+                          <div className="flex items-center mb-3">
+                            <TrendingUp className="h-5 w-5 text-emerald-500 mr-2" />
+                            <h4 className="font-semibold text-gray-900">Results</h4>
+                          </div>
+                          <div className="space-y-2 pl-7">
                             {study.results.map((result, resultIndex) => (
                               <div key={resultIndex} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
                                 <span className="text-sm text-gray-600">{result.metric}</span>
-                                <span className="text-sm font-semibold text-[#074edb]">{result.value}</span>
+                                <span className="text-sm font-semibold text-emerald-600">{result.value}</span>
                               </div>
                             ))}
                           </div>
                         </div>
                       </div>
                       
-                      <div className="p-6 pt-0">
-                        <Button className="w-full bg-white border-2 border-gray-300 text-gray-700 hover:border-[#074edb] hover:text-[#074edb]">
+                      <div className="px-7 pb-7">
+                        <Button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white shadow-md hover:shadow-lg">
                           Read Full Case Study
-                          <span className="ml-2">→</span>
+                          <ChevronRight className="ml-2 h-4 w-4" />
                         </Button>
                       </div>
                     </motion.div>
@@ -313,22 +346,27 @@ export function ResultsPage() {
                 {testimonials.map((testimonial, index) => (
                   <FadeInSection key={index} delay={index * 0.1}>
                     <motion.div
-                      whileHover={{ y: -5 }}
-                      transition={{ duration: 0.2 }}
-                      className="bg-gradient-to-br from-blue-50 to-white p-6 sm:p-8 rounded border border-blue-100"
+                      whileHover={{ y: -8 }}
+                      transition={{ duration: 0.3 }}
+                      className="bg-white p-7 rounded-2xl shadow-sm hover:shadow-lg border border-gray-100 h-full"
                     >
-                      <div className="flex items-center mb-4">
+                      <div className="flex items-start mb-4">
                         <img
                           src={testimonial.avatar}
                           alt={testimonial.author}
-                          className="w-12 h-12 rounded-full mr-4"
+                          className="w-14 h-14 rounded-full mr-4 border-2 border-gray-200"
                         />
                         <div>
                           <div className="font-semibold text-gray-900">{testimonial.author}</div>
                           <div className="text-sm text-gray-600">{testimonial.position}</div>
                         </div>
                       </div>
-                      <p className="text-gray-700 italic">"{testimonial.quote}"</p>
+                      <div className="flex">
+                        <svg className="w-6 h-6 text-blue-200 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                        </svg>
+                        <p className="text-gray-700 text-sm leading-relaxed flex-grow">{testimonial.quote}</p>
+                      </div>
                     </motion.div>
                   </FadeInSection>
                 ))}
