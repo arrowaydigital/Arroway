@@ -52,7 +52,7 @@ export function ProcessSection() {
       color: "from-orange-500 to-orange-600",
       details: [
         "Detailed performance reports",
-        "ROI analysis",
+        "Return analysis",
         "Strategy refinement",
         "Growth planning"
       ]
