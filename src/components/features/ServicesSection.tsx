@@ -16,7 +16,7 @@ export function ServicesSection() {
         name: "Sarah Johnson",
         company: "TechStart Inc.",
         quote: "Their PPC campaigns increased our qualified leads by 300% in just 3 months!"
-      },
+      }
     },
     {
       icon: <Search className="w-8 h-8 text-white" />,
@@ -30,7 +30,7 @@ export function ServicesSection() {
         name: "Michael Chen",
         company: "GrowthCo",
         quote: "Our organic traffic grew 400% year-over-year thanks to their SEO expertise."
-      },
+      }
     },
     {
       icon: <Share2 className="w-8 h-8 text-white" />,
@@ -44,7 +44,7 @@ export function ServicesSection() {
         name: "Emma Rodriguez",
         company: "StyleHub",
         quote: "Our community grew 250% and engagement rates doubled with their social strategy."
-      },
+      }
     },
     {
       icon: <BarChart3 className="w-8 h-8 text-white" />,
@@ -58,32 +58,35 @@ export function ServicesSection() {
         name: "David Park",
         company: "FinTech Solutions",
         quote: "Their analytics helped us identify growth opportunities we were missing for years."
-      },
+      }
     },
   ];
 
   return (
-    <section id="services" className="py-16 sm:py-20 bg-gray-50">
+    <section id="services" className="py-16 sm:py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            <br />
-            <br />
-            Comprehensive Marketing Solutions
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center justify-center gap-2 mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+              <br/>
+              <br/>
+              Comprehensive Marketing Solutions
+            </h2>
+          </div>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-4">
             Everything you need to grow your online presence and drive measurable business results.
           </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto rounded-full"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="bg-white rounded p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group"
+              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 group overflow-hidden"
             >
               <div className="flex flex-col sm:flex-row gap-6">
-                <div className={`flex-shrink-0 w-16 h-16 bg-gradient-to-br ${service.color} rounded flex items-center justify-center`}>
+                <div className={`flex-shrink-0 w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center shadow-md`}>
                   {service.icon}
                 </div>
 
@@ -92,7 +95,7 @@ export function ServicesSection() {
                     {service.title}
                   </h3>
 
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-gray-600 mb-5 leading-relaxed">
                     {service.description}
                   </p>
 
@@ -102,7 +105,7 @@ export function ServicesSection() {
                       {service.stats.map((stat, idx) => (
                         <span
                           key={idx}
-                          className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-50 text-[#074edb] border border-blue-100 whitespace-nowrap"
+                          className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-blue-50 to-indigo-50 text-[#074edb] border border-blue-100 whitespace-nowrap"
                         >
                           {stat}
                         </span>
@@ -115,27 +118,23 @@ export function ServicesSection() {
                     <ul className="space-y-2">
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start text-gray-700">
-                          <div className="w-5 h-5 rounded bg-blue-100 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
-                            <div className="w-2 h-2 rounded bg-[#074edb]" />
+                          <div className="w-5 h-5 rounded-full bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                            <div className="w-2 h-2 rounded-full bg-[#074edb]" />
                           </div>
-                          <span>{feature}</span>
+                          <span className="text-sm">{feature}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="mb-5">
-                    <div className="bg-blue-50 rounded p-4 border border-blue-100">
+                  <div className="mb-6">
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100">
                       <p className="text-sm italic text-gray-700 mb-2">"{service.testimonial.quote}"</p>
                       <p className="text-xs font-semibold text-[#074edb]">— {service.testimonial.name}, {service.testimonial.company}</p>
                     </div>
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                    <div className="flex-1">
-                      <div className="text-center py-3 text-lg font-bold text-[#074edb]">
-                      </div>
-                    </div>
                     <Button
                       variant="outline"
                       className="flex-1 border-2 border-gray-200 hover:border-[#074edb] hover:text-[#074edb] transition-colors py-5 sm:py-6"
@@ -143,7 +142,7 @@ export function ServicesSection() {
                       Learn More
                     </Button>
                     <Button
-                      className="flex-1 bg-[#074edb] hover:bg-[#063db3] text-white py-5 sm:py-6"
+                      className="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-5 sm:py-6 shadow-md hover:shadow-lg transition-all"
                       onClick={() => window.location.href = '/contact'}
                     >
                       Get Started
