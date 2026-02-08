@@ -5,7 +5,7 @@ export function MetricsSection() {
     {
       icon: TrendingUp,
       value: "347%",
-      label: "Average ROI",
+      label: "Average Return",
       description: "Across all campaigns",
     },
     {
