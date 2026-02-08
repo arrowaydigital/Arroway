@@ -142,11 +142,13 @@ export function CaseStudiesSection() {
                       <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                       Results
                     </h4>
-                    <div className="space-y-2">
+                    <div className="grid grid-cols-1 gap-2">
                       {study.results.map((result, resultIndex) => (
-                        <div key={resultIndex} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
-                          <span className="text-sm text-gray-600">{result.metric}</span>
-                          <span className="text-sm font-semibold text-emerald-600">{result.value}</span>
+                        <div key={resultIndex} className="bg-gray-50 p-3 rounded-lg">
+                          <div className="flex justify-between items-center">
+                            <span className="text-sm text-gray-600">{result.metric}</span>
+                            <span className="text-sm font-semibold text-emerald-600">{result.value}</span>
+                          </div>
                         </div>
                       ))}
                     </div>
