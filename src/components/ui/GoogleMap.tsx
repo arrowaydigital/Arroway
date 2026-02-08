@@ -1,21 +1,25 @@
+import React from "react";
+
 interface GoogleMapProps {
   src: string;
-  title: string;
+  title?: string;
+  className?: string;
 }
 
-export function GoogleMap({ src, title }: GoogleMapProps) {
+export function GoogleMap({ src, title = "Office Location", className = "" }: GoogleMapProps) {
   return (
-    <div className="w-full h-64 rounded-lg overflow-hidden border border-gray-200">
+    <div className={`${className} rounded-xl`}>
       <iframe
         src={src}
-        title={title}
         width="100%"
-        height="100%"
+        height="300"
         style={{ border: 0 }}
         allowFullScreen
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
-      />
+        title={title}
+        className="w-full h-full min-h-[300px] rounded-xl overflow-hidden border-0"
+      ></iframe>
     </div>
   );
 }
