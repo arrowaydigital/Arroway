@@ -21,7 +21,7 @@ export function AboutPage() {
   ];
 
   const achievements = [
-    { number: "300%+", label: "Average ROI for clients" },
+    { number: "300%+", label: "Average Return for clients" },
     { number: "500+", label: "Campaigns managed" },
     { number: "50+", label: "Happy clients" },
     { number: "8", label: "Years of experience" }
