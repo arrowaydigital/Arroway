@@ -61,10 +61,10 @@ export function CaseStudiesSection() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-gray-50">
+    <section className="py-16 sm:py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <FadeInSection>
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Real Results from Real Businesses
             </h2>
@@ -74,78 +74,87 @@ export function CaseStudiesSection() {
           </div>
         </FadeInSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {caseStudies.map((study, index) => (
             <FadeInSection key={study.id} delay={index * 0.1}>
               <motion.div
-                whileHover={{ scale: 1.02, y: -5 }}
-                transition={{ duration: 0.2 }}
-                className="bg-white rounded border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition-all h-full flex flex-col"
+                whileHover={{ scale: 1.03, y: -8, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.1)" }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 h-full flex flex-col group"
               >
                 <div className="relative">
                   <img
                     src={study.image}
                     alt={study.title}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className={`absolute top-4 right-4 bg-gradient-to-br ${study.color} rounded p-3 shadow-lg`}>
-
+                  <div className={`absolute top-4 right-4 bg-gradient-to-br ${study.color} rounded-xl p-4 shadow-lg`}>
+                    <div className="text-white text-xs font-bold">CASE STUDY</div>
                   </div>
                 </div>
                 
-                <div className="p-6 flex-grow">
-                  <div className="mb-4">
-                    <span className="inline-block bg-blue-100 text-[#074edb] px-3 py-1 rounded text-sm font-medium mb-2">
+                <div className="p-7 flex-grow">
+                  <div className="mb-5">
+                    <span className="inline-block bg-gradient-to-r from-blue-50 to-indigo-50 text-[#074edb] px-4 py-2 rounded-full text-sm font-medium mb-3 border border-blue-100">
                       {study.industry}
                     </span>
-                    <h3 className="text-xl font-bold text-gray-900 mt-3 mb-2">
+                    <h3 className="text-2xl font-bold text-gray-900 mt-2 mb-2 group-hover:text-[#074edb] transition-colors">
                       {study.title}
                     </h3>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-gray-600 text-sm font-medium">
                       For {study.client}
                     </p>
                   </div>
                   
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-gray-900 mb-2">The Challenge</h4>
+                  <div className="mb-5">
+                    <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                      <span className="w-2 h-2 bg-[#074edb] rounded-full"></span>
+                      The Challenge
+                    </h4>
                     <p className="text-gray-600 text-sm leading-relaxed">
                       {study.challenge}
                     </p>
                   </div>
                   
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-gray-900 mb-2">Our Solution</h4>
+                  <div className="mb-5">
+                    <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                      <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                      Our Solution
+                    </h4>
                     <p className="text-gray-600 text-sm leading-relaxed">
                       {study.solution}
                     </p>
                   </div>
 
-                  <div className="mb-4">
-                    <div className="flex justify-between text-sm text-gray-600 mb-2">
-                      <span>Timeline:</span>
-                      <span className="font-medium text-[#074edb]">{study.timeline}</span>
+                  <div className="grid grid-cols-2 gap-4 mb-5">
+                    <div className="bg-gray-50 p-3 rounded-lg">
+                      <div className="text-xs text-gray-500">Timeline</div>
+                      <div className="font-semibold text-gray-900">{study.timeline}</div>
                     </div>
-                    <div className="flex justify-between text-sm text-gray-600 mb-3">
-                      <span>Investment:</span>
-                      <span className="font-medium text-[#074edb]">{study.investment}</span>
+                    <div className="bg-gray-50 p-3 rounded-lg">
+                      <div className="text-xs text-gray-500">Investment</div>
+                      <div className="font-semibold text-gray-900">{study.investment}</div>
                     </div>
                   </div>
                   
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-3">Results</h4>
+                    <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                      <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                      Results
+                    </h4>
                     <div className="space-y-2">
                       {study.results.map((result, resultIndex) => (
                         <div key={resultIndex} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
                           <span className="text-sm text-gray-600">{result.metric}</span>
-                          <span className="text-sm font-semibold text-[#074edb]">{result.value}</span>
+                          <span className="text-sm font-semibold text-emerald-600">{result.value}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
                 
-                <div className="p-6 pt-0">
-                  <Button className="w-full bg-white border-2 border-gray-300 text-gray-700 hover:border-[#074edb] hover:text-[#074edb]">
+                <div className="p-7 pt-0">
+                  <Button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white shadow-md hover:shadow-lg transition-all py-3">
                     Read Full Case Study
                   </Button>
                 </div>
@@ -157,7 +166,7 @@ export function CaseStudiesSection() {
         <FadeInSection delay={0.3}>
           <div className="text-center">
             <Link to="/results">
-              <Button className="bg-[#074edb] hover:bg-[#063db3] text-white px-8 py-6 text-lg">
+              <Button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-4 text-base shadow-lg hover:shadow-xl transition-all">
                 View All Case Studies
               </Button>
             </Link>
