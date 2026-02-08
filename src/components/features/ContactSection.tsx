@@ -364,8 +364,8 @@ export function ContactSection() {
               <div className="space-y-6">
                 <h3 className="text-xl font-bold text-gray-900">Our Location</h3>
                 <GoogleMap 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.11976397304603!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sus!4v1612345678901!5m2!1sen!2sus" 
-                  title="Arroway Office Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.390521226165!2d78.0833333!3d10.965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf5e4ef9890cf%3A0x87a0fb22c0e5e466!2sKarur%2C%20Tamil%20Nadu%2C%20India!5e0!3m2!1sen!2sin!4v1703123456789" 
+                  title="Arroway Office Location - Karur, Tamil Nadu, India"
                 />
               </div>
             </div>
