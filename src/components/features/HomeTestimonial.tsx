@@ -27,10 +27,10 @@ export function HomeTestimonial() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-gray-50">
+    <section className="py-16 sm:py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <FadeInSection>
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Trusted by Growing Businesses
             </h2>
@@ -40,48 +40,50 @@ export function HomeTestimonial() {
           </div>
         </FadeInSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <FadeInSection key={testimonial.name} delay={index * 0.15}>
               <motion.div
-                whileHover={{ scale: 1.02, y: -5 }}
-                transition={{ duration: 0.2 }}
-                className="bg-white p-8 rounded border border-gray-200 hover:shadow-lg transition-shadow relative h-full"
+                whileHover={{ scale: 1.03, y: -8, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.1)" }}
+                transition={{ duration: 0.3 }}
+                className="bg-white p-8 rounded-2xl border border-gray-200 hover:shadow-2xl transition-all duration-300 relative h-full group"
               >
-                <Quote className="absolute top-6 right-6 h-12 w-12 text-blue-100" />
+                <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                  <Quote className="h-6 w-6 text-white" />
+                </div>
                 
                 {/* Rating */}
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star
                       key={i}
-                      className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                      className="h-5 w-5 fill-yellow-400 text-yellow-400"
                     />
                   ))}
                 </div>
 
                 {/* Content */}
-                <p className="text-gray-700 mb-4 leading-relaxed relative z-10">
+                <p className="text-gray-700 mb-6 leading-relaxed relative z-10 text-lg italic">
                   "{testimonial.content}"
                 </p>
 
                 {/* Metric Badge */}
-                <div className="inline-block bg-blue-100 text-[#074edb] px-4 py-2 rounded text-sm font-semibold mb-6">
+                <div className="inline-block bg-gradient-to-r from-blue-50 to-indigo-50 text-[#074edb] px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-blue-100 shadow-sm">
                   {testimonial.metric}
                 </div>
 
                 {/* Author */}
-                <div className="flex items-center gap-4 pt-6 border-t border-gray-200">
+                <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
                   <img
                     src={testimonial.image}
                     alt={testimonial.name}
-                    className="w-12 h-12 rounded object-cover"
+                    className="w-14 h-14 rounded-full object-cover border-2 border-gray-200 group-hover:border-[#074edb] transition-colors"
                   />
                   <div>
-                    <div className="font-semibold text-gray-900">
+                    <div className="font-bold text-gray-900 text-lg">
                       {testimonial.name}
                     </div>
-                    <div className="text-sm text-gray-600">{testimonial.role}</div>
+                    <div className="text-sm text-gray-600 font-medium">{testimonial.role}</div>
                   </div>
                 </div>
               </motion.div>
@@ -90,9 +92,9 @@ export function HomeTestimonial() {
         </div>
 
         <FadeInSection delay={0.3}>
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <Link to="/testimonials">
-              <Button variant="outline" className="border-2 border-gray-300 hover:border-[#074edb] hover:text-[#074edb] px-8 py-6 text-lg">
+              <Button variant="outline" className="border-2 border-gray-300 hover:border-[#074edb] hover:text-[#074edb] px-6 py-4 text-base shadow-sm hover:shadow-md transition-all">
                 Read More Reviews
               </Button>
             </Link>
