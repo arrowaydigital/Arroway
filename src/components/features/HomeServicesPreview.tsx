@@ -10,9 +10,9 @@ export function HomeServicesPreview() {
     {
       icon: Target,
       title: "Paid Advertising",
-      description: "High-impact PPC and social media campaigns that generate qualified leads and deliver 300%+ ROI through data-driven optimization.",
+      description: "High-impact PPC and social media campaigns that generate qualified leads and deliver 300%+ return through data-driven optimization.",
       color: "from-blue-500 to-blue-600",
-      metric: "300%+ ROI",
+      metric: "300%+ Return",
       features: ["Google Ads", "Facebook Ads", "Instagram Ads", "Retargeting"]
     },
     {
