@@ -7,7 +7,7 @@ export function HomeMetrics() {
     {
       icon: TrendingUp,
       value: "347%",
-      label: "Average ROI",
+      label: "Average Return",
     },
     {
       icon: Users,
