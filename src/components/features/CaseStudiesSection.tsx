@@ -26,23 +26,6 @@ export function CaseStudiesSection() {
     },
     {
       id: 2,
-      title: "SaaS Platform Scaling",
-      client: "CloudTask Pro",
-      industry: "Productivity Software",
-      challenge: "Stagnant user acquisition and retention",
-      solution: "Content marketing + Social media + Email automation",
-      results: [
-        { metric: "User Base", value: "15x growth" },
-        { metric: "Monthly Recurring Revenue", value: "420% increase" },
-        { metric: "Customer Lifetime Value", value: "180% improvement" }
-      ],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      color: "from-purple-500 to-purple-600",
-      timeline: "8 months",
-      investment: "$12,000/mo"
-    },
-    {
-      id: 3,
       title: "Local Service Business",
       client: "Prime Home Services",
       industry: "Home Services",
@@ -57,6 +40,23 @@ export function CaseStudiesSection() {
       color: "from-green-500 to-green-600",
       timeline: "4 months",
       investment: "$6,500/mo"
+    },
+    {
+      id: 3,
+      title: "SaaS Company Expansion",
+      client: "CloudTech Solutions",
+      industry: "Software as a Service",
+      challenge: "Intense competition and low market awareness",
+      solution: "Content Marketing + LinkedIn Ads + Conversion Optimization",
+      results: [
+        { metric: "Trial Signups", value: "420% increase" },
+        { metric: "Customer Acquisition", value: "180% growth" },
+        { metric: "ARR", value: "$1.7M in 8 months" }
+      ],
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+      color: "from-purple-500 to-purple-600",
+      timeline: "8 months",
+      investment: "$12,000/mo"
     }
   ];
 
