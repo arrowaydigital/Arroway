@@ -8,16 +8,15 @@ export function ServicesSection() {
       icon: <Megaphone className="w-8 h-8 text-white" />,
       title: "Paid Advertising (PPC/Social)",
       description:
-        "Drive qualified leads with strategic Google Ads, Facebook, and Instagram campaigns optimized for maximum ROI and conversion rates.",
+        "Drive qualified leads with strategic Google Ads, Facebook, and Instagram campaigns optimized for maximum return and conversion rates.",
       features: ["Google Ads Management", "Social Media Ads", "Retargeting Campaigns"],
       color: "from-blue-500 to-blue-600",
-      stats: ["300%+ Average ROI", "Lead Generation", "Brand Awareness"],
+      stats: ["300%+ Average Return", "Lead Generation", "Brand Awareness"],
       testimonial: {
         name: "Sarah Johnson",
         company: "TechStart Inc.",
         quote: "Their PPC campaigns increased our qualified leads by 300% in just 3 months!"
       },
-      price: "Start from $2k/mo"
     },
     {
       icon: <Search className="w-8 h-8 text-white" />,
@@ -32,7 +31,6 @@ export function ServicesSection() {
         company: "GrowthCo",
         quote: "Our organic traffic grew 400% year-over-year thanks to their SEO expertise."
       },
-      price: "Start from $1.5k/mo"
     },
     {
       icon: <Share2 className="w-8 h-8 text-white" />,
@@ -47,7 +45,6 @@ export function ServicesSection() {
         company: "StyleHub",
         quote: "Our community grew 250% and engagement rates doubled with their social strategy."
       },
-      price: "Start from $1k/mo"
     },
     {
       icon: <BarChart3 className="w-8 h-8 text-white" />,
@@ -62,7 +59,6 @@ export function ServicesSection() {
         company: "FinTech Solutions",
         quote: "Their analytics helped us identify growth opportunities we were missing for years."
       },
-      price: "Start from $800/mo"
     },
   ];
 
@@ -138,7 +134,6 @@ export function ServicesSection() {
                   <div className="flex flex-col sm:flex-row gap-3 pt-2">
                     <div className="flex-1">
                       <div className="text-center py-3 text-lg font-bold text-[#074edb]">
-                        {service.price}
                       </div>
                     </div>
                     <Button
