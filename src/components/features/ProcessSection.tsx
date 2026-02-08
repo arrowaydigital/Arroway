@@ -132,10 +132,10 @@ export function ProcessSection() {
                 Join hundreds of businesses achieving remarkable growth with our proven marketing process.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-white text-[#074edb] px-8 py-4 rounded font-semibold hover:bg-gray-100 transition-colors">
+                <button className="bg-white text-[#074edb] px-6 py-3 rounded font-semibold hover:bg-gray-100 transition-colors">
                   Schedule Free Consultation
                 </button>
-                <button className="border-2 border-white text-white px-8 py-4 rounded font-semibold hover:bg-white/10 transition-colors">
+                <button className="border-2 border-white text-white px-6 py-3 rounded font-semibold hover:bg-white/10 transition-colors">
                   Learn More About Our Process
                 </button>
               </div>
