@@ -72,8 +72,8 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Get In Touch</h4>
             <ul className="space-y-2 text-sm text-blue-100">
-              <li>info@arroway.com</li>
-              <li>+1 (555) 123-4567</li>
+              <li>+91 63796 44145</li>
+              <li>Karur, Tamil Nadu, India</li>
             </ul>
             <div className="flex space-x-4 mt-4">
               <a href="#" className="text-blue-100 hover:text-white transition-colors">
@@ -94,6 +94,17 @@ export function Footer() {
 
         <div className="border-t border-blue-700 mt-8 pt-8 text-center text-sm text-blue-100">
           <p>&copy; 2026 Arroway. All rights reserved.</p>
+          <p className="mt-2">
+            Developed by{" "}
+            <a 
+              href="https://echoess.in" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white hover:text-blue-200 transition-colors underline"
+            >
+              Echoes Software Technologies
+            </a>
+          </p>
         </div>
       </div>
     </footer>
