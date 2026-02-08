@@ -48,7 +48,7 @@ export function HeroSection() {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed"
             >
-              We help small businesses and startups achieve 300%+ growth through AI-powered digital marketing campaigns that deliver measurable ROI and real business results.
+              We help small businesses and startups achieve 300%+ growth through AI-powered digital marketing campaigns that deliver measurable results and real business outcomes.
             </motion.p>
             
             <motion.div 
@@ -80,23 +80,7 @@ export function HeroSection() {
                 alt="Digital marketing analytics dashboard"
                 className="w-full h-auto"
               />
-              {/* Overlay card */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.5 }}
-                className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 bg-white rounded-2xl p-4 sm:p-6 shadow-lg"
-              >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="text-xs sm:text-sm text-gray-600 font-medium">Campaign ROI</div>
-                    <div className="text-2xl sm:text-3xl font-bold text-[#074edb]">347%</div>
-                  </div>
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded bg-green-100 flex items-center justify-center">
-                    <div className="text-xl sm:text-2xl">📈</div>
-                  </div>
-                </div>
-              </motion.div>
+
             </div>
           </motion.div>
         </div>
