@@ -25,9 +25,9 @@ export function TestimonialsSection() {
       role: "Marketing Director, ShopLocal",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
       content:
-        "Best marketing investment we've made. The ROI speaks for itself - every dollar spent generates over $4 in revenue. Highly recommend!",
+        "Best marketing investment we've made. The return speaks for itself - every dollar spent generates over $4 in revenue. Highly recommend!",
       rating: 5,
-      metric: "400% ROI",
+      metric: "400% Return",
     },
   ];
 
