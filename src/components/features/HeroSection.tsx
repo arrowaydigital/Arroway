@@ -57,11 +57,11 @@ export function HeroSection() {
               transition={{ delay: 0.5, duration: 0.5 }}
               className="flex flex-col sm:flex-row gap-3 md:gap-4"
             >
-              <Button className="bg-[#074edb] hover:bg-[#063db3] text-white px-6 py-4 sm:px-8 sm:py-6 text-base sm:text-lg h-auto">
+              <Button className="bg-[#074edb] hover:bg-[#063db3] text-white px-6 py-3 text-base h-auto">
                 Get Your Free Growth Strategy
-                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button variant="outline" className="border-2 border-gray-300 px-6 py-4 sm:px-8 sm:py-6 text-base sm:text-lg h-auto hover:border-[#074edb] hover:text-[#074edb]">
+              <Button variant="outline" className="border-2 border-gray-300 px-6 py-3 text-base h-auto hover:border-[#074edb] hover:text-[#074edb]">
                 Watch Demo
               </Button>
             </motion.div>
