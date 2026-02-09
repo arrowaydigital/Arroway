@@ -1,6 +1,8 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export function AboutPage() {
 
@@ -25,6 +27,23 @@ export function AboutPage() {
     { number: "500+", label: "Campaigns managed" },
     { number: "50+", label: "Happy clients" },
     { number: "8", label: "Years of experience" }
+  ];
+
+  const founders = [
+    {
+      name: "Mufeez",
+      title: "Founder",
+      bio: "Mufeez is the visionary founder who established Arroway with a passion for technology-driven marketing solutions. With extensive expertise in software engineering and AI technologies, he leads our technology innovation and product development. His technical leadership ensures our marketing strategies are powered by cutting-edge infrastructure.",
+      expertise: ["AI/ML Engineering", "Product Development", "Technology Strategy", "Software Architecture"],
+      image: "/images/mufeez.png"
+    },
+    {
+      name: "Abdul Raafih",
+      title: "Co-Founder",
+      bio: "As co-founder and CEO, Abdul brings deep expertise in digital marketing and business strategy to Arroway. With years of experience in data-driven marketing strategies, he has successfully led numerous high-impact campaigns for clients across various industries, driving remarkable growth outcomes.",
+      expertise: ["Digital Strategy", "Business Development", "Marketing Leadership", "Growth Hacking"],
+      image: "/images/abdul_raafih.png"
+    }
   ];
 
   return (
@@ -120,6 +139,83 @@ export function AboutPage() {
                 </div>
               </motion.div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Founders Section */}
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Meet Our Founders
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              The visionaries behind Arroway's innovative approach to data-driven marketing.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {founders.map((founder, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Card className="overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                  <div className="md:flex h-full">
+                    <div className="md:w-2/5 bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center p-6">
+                      <img 
+                        src={founder.image} 
+                        alt={founder.name}
+                        className="rounded-full w-40 h-40 object-cover border-4 border-white shadow-lg"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const parent = target.parentElement;
+                          if (parent) {
+                            parent.innerHTML = `
+                              <div class="bg-white/20 rounded-full w-40 h-40 flex items-center justify-center">
+                                <span class="text-4xl font-bold text-white">
+                                  ${founder.name.split(' ').map(n => n[0]).join('')}
+                                </span>
+                              </div>
+                            `;
+                          }
+                        }}
+                      />
+                    </div>
+                    <div className="md:w-3/5 p-8 flex flex-col">
+                      <div className="mb-4">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-1">{founder.name}</h3>
+                        <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-100">
+                          {founder.title}
+                        </Badge>
+                      </div>
+                      <p className="text-gray-600 mb-6 leading-relaxed flex-grow">{founder.bio}</p>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-3">Expertise</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {founder.expertise.map((skill, skillIndex) => (
+                            <Badge key={skillIndex} variant="secondary" className="text-xs">
+                              {skill}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
